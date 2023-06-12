@@ -1,0 +1,37 @@
+div.ddsmoothmobile{
+    z-index: 9999;
+}
+.accr_header{
+    position: relative;
+}
+.accr_header .btn_accor{
+    position: absolute;
+    right: 12px;
+    top: 15px;
+    font-size: 17px;
+}
+.accr_header i{
+    color: #000;
+}
+div.ddsmoothmobile ul li a{
+    display: inline-block;
+}
+div.ddsmoothmobile ul li ul li a{
+    margin-left: 20px;
+}
+div.ddsmoothmobile ul li ul li ul li a{
+    margin-left: 40px;
+}
+div.ddsmoothmobile ul li ul li ul li  ul li a{
+    margin-left: 60px;
+}
+div.ddsmoothmobile ul li ul li ul li  ul li ul li a{
+    margin-left: 80px;
+}
+div.ddsmoothmobile ul li ul li ul li  ul li ul li ul li a{
+    margin-left: 100px;
+}
+div.ddsmoothmobile ul li a:hover {
+    background: none;
+    color: #fff;
+}

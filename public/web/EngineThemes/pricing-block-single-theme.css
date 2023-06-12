@@ -1,0 +1,42 @@
+.pricing-block-theme .question-ext {
+    padding-left: 5px;
+    color: #ffa726;
+}
+
+.pricing-block-theme .pricing-list-option-wrapper > ul {
+    margin: 0;
+    padding: 0;
+    display: block;
+    list-style: none
+}
+
+.pricing-block-theme .pricing-list-option-wrapper > ul > li {
+    word-wrap: break-word;
+    color: #2c3d4f;
+    font-size: 16px;
+    font-family: "proxima-nova", sans-serif;
+    display: block;
+    margin-bottom: 15px
+}
+
+.pricing-block-theme ul.bonus_pricing > li {
+    list-style: none;
+    margin-bottom: 5px !important;
+    color: #fff;
+    text-align: left;
+    font-size: 14px !important;
+    font-family: "proxima-nova", sans-serif
+}
+
+.pricing-block-theme ul.bonus_pricing > li > span:last-child {
+    float: right
+}
+
+.pricing-block-theme .tooltip-inner {
+    min-width: 200px
+}
+
+.pricing-block-theme .tooltip-inner ul {
+    list-style: none;
+    padding: 0
+}

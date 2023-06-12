@@ -1,0 +1,111 @@
+/* CSS Setting */
+.main-color, .content-before-after.left-position .btn-header:hover, .btn-ask-question, #top-bar-gallery.help-page-topbar a.icon-file{
+	background-color: #eb5155;
+}
+.testimonial-background{
+	position: relative;
+}
+.single-full-bg ,
+.cat-full-bg{
+	width: 0%;
+	display: block;
+	position: absolute;
+	/*background:#2c3e50; */
+	height: 100%;
+	left: 0;
+	top: 0;
+
+}
+.changelogs{
+	width: 0%;
+	display: block;
+	position: absolute;
+	background:#2c3e50 !important;
+	height: 100%;
+	left: 0;
+	top: 0;
+
+}
+.test-full-bg
+{
+	width: 0%;
+	display: block;
+	position: absolute;
+	background:#2c3e50;
+	height: 100%;
+	left: 0;
+	top: 0;
+}
+.list-news-blog-wrapper {
+	width: 768px;
+}
+.list-news-blog-wrapper, .paginations {
+	padding-bottom: 0;
+	margin-top: 40px;
+}
+nav.menu-footer ul li a:hover,
+.footer-links ul li a:hover,
+.blog-content-wrapper .title-blog a:hover,
+.close-details-extension:hover,
+.content-before-after.right-position .btn-header:hover,
+.content-before-after.left-position .content-detail-wrapper h3 span.color-main,
+.btn-sumary-big.btn-buy-now:hover,
+.learnmore-sale-page-wrapper li span.learnmore-number,
+.color-main,
+.help-list-wrapper li .help-number,
+.help-list-wrapper li .help-content a,
+.text-left-faq a,
+.text-right-faq .ask-question-list:hover h2,
+.help-page-left-wrapper li .help-page-left-content .help-page-title a:hover,
+.help-page-right-content .help-page-title a:hover,
+.list-link-to-link li .link-to-wrapper:hover h3,
+.recent-blog-wrapper .title-recent a:hover{
+	color:#eb5155 !important;
+}
+.close-details-extension:hover,
+.btn-sumary-big.btn-buy-now:hover,
+.text-left-faq p a,
+#top-bar-gallery.sale-page-topbar.version-2 .btn-sumary-big.btn-buy-now:hover,
+.list-link-to-link li .link-to-wrapper:hover{
+	border-color:#eb5155;
+}
+.newsletters-form label,
+nav.menu-footer ul li a,
+.feature-wrapper p,
+.footer-links ul li a{
+	color: #778f9b;
+}
+.footer-links ul,
+.main-menu ul,
+.menu-footer ul,
+.list-meta-wrapper,
+.list-theme-submenu,
+.link-demo-item,
+.list-features-blog,
+.details-extension-wrapper .info-extension .list-info-extension,
+.content-before-after .content-left ul,
+.nav-list-features,
+.learnmore-sale-page-wrapper,
+.list-icon-ask-question,
+.list-name-showcase,
+.help-page-left-wrapper,
+.help-list-wrapper,
+.nav-list-questions,
+.carousel-3d,
+.list-link-to-link,
+.list-pricing,
+.list-pricing li .pricing-wrapper .pricing-list-option-wrapper ul,
+#cbp-spmenu-s2 ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.avatar-author-blog-wrapper img, .showcase-item-wrapper .img-showcase img{
+	width:100%;
+	height:auto;
+}
+@media (max-width: 767px) {
+	.list-news-blog-wrapper {
+		width: 100%;
+	}
+}

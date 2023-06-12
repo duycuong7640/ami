@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: */page/*
+Disallow: *?fbclid=*
+Disallow: /?s=*
+Disallow: /login-admin/
+Disallow: /home/
+
+Allow: /*.js$
+Allow: /*.css$
+
+Sitemap: https://takemod.com/sitemap.xml
