@@ -305,6 +305,34 @@ class Helpers
                 "" => "Tham gia cộng đồng Ami để học tập, phát triển bản thân, tìm kiếm cộng sự, cơ hội kinh doanh.",
                 $es => "Join Ami community to learn, develop yourself, find partners, business opportunities.",
             ],
+            md5("Kết nối với Ami") => [
+                "" => "Kết nối với Ami",
+                $es => "Connect with Ami",
+            ],
+            md5("Liên hệ") => [
+                "" => "Liên hệ",
+                $es => "Contact",
+            ],
+            md5("Phổ biến") => [
+                "" => "Phổ biến",
+                $es => "Popular",
+            ],
+            md5("Bán chạy") => [
+                "" => "Bán chạy",
+                $es => "Selling",
+            ],
+            md5("Hàng mới") => [
+                "" => "Hàng mới",
+                $es => "New products",
+            ],
+            md5("Giá từ thấp đến cao") => [
+                "" => "Giá từ thấp đến cao",
+                $es => "Price from low to high",
+            ],
+            md5("Giá từ cao đến thấp") => [
+                "" => "Giá từ cao đến thấp",
+                $es => "Price from high to low",
+            ],
             md5("") => [
                 "" => "",
                 $es => "",
@@ -664,6 +692,9 @@ regex;
                 break;
             case 'new_list':
                 $str .= 'w440/h294/fill!';
+                break;
+            case 'new_list_big':
+                $str .= 'w320/h520/fill!';
                 break;
             case 'event_img':
                 $str .= 'w1000/fill!';

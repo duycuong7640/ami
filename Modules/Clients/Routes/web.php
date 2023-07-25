@@ -22,11 +22,8 @@ switch ($lang){
 //    case "_pt":
 //        $route = "pt";
 //        break;
-    case "_id":
-        $route = "id";
-        break;
-    case "_ph":
-        $route = "ph";
+    case "_en":
+        $route = "en";
         break;
     default:
         $route = "";
@@ -41,12 +38,9 @@ $url = Request::url();
 //    $_SESSION["lang"] = "_pt";
 //    $route = "pt";
 //}else
-if(strpos($url, "/id/")){
-    $_SESSION["lang"] = "_id";
-    $route = "id";
-}elseif(strpos($url, "/ph/")){
-    $_SESSION["lang"] = "_ph";
-    $route = "ph";
+if(strpos($url, "/en/")){
+    $_SESSION["lang"] = "_en";
+    $route = "en";
 }else{
     $_SESSION["lang"] = "";
     $route = "";
@@ -66,17 +60,11 @@ if(empty($route)){
 //            $route = "pt";
 //        }
 //    }else
-    if(strpos($url, "/id")){
-        $tmp = explode("/id", $url);
+    if(strpos($url, "/en")){
+        $tmp = explode("/en", $url);
         if(empty($tmp[1])) {
-            $_SESSION["lang"] = "_id";
-            $route = "id";
-        }
-    }elseif(strpos($url, "/ph")){
-        $tmp = explode("/ph", $url);
-        if(empty($tmp[1])) {
-            $_SESSION["lang"] = "_ph";
-            $route = "ph";
+            $_SESSION["lang"] = "_en";
+            $route = "en";
         }
     }else{
         $_SESSION["lang"] = "";

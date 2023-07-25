@@ -164,6 +164,10 @@
                                               name="content">{{ str_replace('\"','"', $data['detail']->content) }}</textarea>
                                 </div>
                                 <div class="form-group">
+                                    <label>Tag content</label>
+                                    <textarea class="ckeditor" name="tag_content">{{ $data['detail']->tag_content }}</textarea>
+                                </div>
+                                <div class="form-group">
                                     <label>Trạng thái</label>
                                     <div class="row">
                                         <div class="col-sm-2">
@@ -207,6 +211,10 @@
                                     <label>Mô tả</label>
                                     <textarea class="ckeditor-mini"
                                               name="description_en">{{ $data['detail']->description_en }}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tag content</label>
+                                    <textarea class="ckeditor" name="tag_content_en">{{ $data['detail']->tag_content_en }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Nội dung</label>

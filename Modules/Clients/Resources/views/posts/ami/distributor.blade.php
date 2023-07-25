@@ -10,7 +10,7 @@
                 </div>
             </div>
         </section>
-        <section class="wrap-ex-one">
+        <section class="wrap-ex-one wrap-ex-one2">
             <div class="main-width">
                 <div class="ex-des">
                     {!! \App\Helpers\Helpers::lang($data['category'], "description2") !!}

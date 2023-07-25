@@ -8,7 +8,7 @@
         <div class="wrap-box">
             <div class="boxft cal-b-ft">
                 <div class="cate-title">
-                    Kết nối với Ami
+                    {{ \App\Helpers\Helpers::langDefine('Kết nối với Ami') }}
                 </div>
                 <div class="icon-connect">
                     <ul>
@@ -64,15 +64,15 @@
             @endif
             <div class="boxft cal-b-ft">
                 <div class="cate-title">
-                    Liên hệ
+                    {{ \App\Helpers\Helpers::langDefine('Liên hệ') }}
                 </div>
                 <div class="footer-contact">
-                    {!! !empty($data_common['setting']->content_footer) ? $data_common['setting']->content_footer : '' !!}
+                    {!! \App\Helpers\Helpers::lang($data_common['setting'], "content_footer") !!}
                 </div>
             </div>
         </div>
         <div class="wrap-footer-ex">
-            <div class="ex-left">{!! !empty($data_common['setting']->copyright) ? $data_common['setting']->copyright : '' !!}</div>
+            <div class="ex-left">{!! \App\Helpers\Helpers::lang($data_common['setting'], "copyright") !!}</div>
             <div class="ex-right">
                 <ul>
                     @if(!empty($data_common['category_list_footer']))

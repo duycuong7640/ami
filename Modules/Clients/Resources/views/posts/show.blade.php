@@ -23,12 +23,6 @@
                             <img src="{{ asset('web/images/icon/ic_message.svg') }}"/>
                         </a>
                     </li>
-                    <li>
-                        <a href="{!! !empty($data_common['setting']->instagram) ? $data_common['setting']->instagram : '' !!}"
-                           title="" target="_blank">
-                            <img src="{{ asset('web/images/icon/ic_instagram.svg') }}"/>
-                        </a>
-                    </li>
                 </ul>
             </div>
             <div class="wrap-detail">
@@ -45,34 +39,11 @@
                     <div class="content-view ctct">
                         {!! \App\Helpers\Helpers::lang($data['detail'], "content") !!}
                     </div>
-                    <div class="wrap-show-extention2">
-                        <ul>
-                            <li>
-                                <a href="{!! !empty($data_common['setting']->facebook) ? $data_common['setting']->facebook : '' !!}"
-                                   title="" target="_blank">
-                                    <img src="{{ asset('web/images/icon/ic_fb.svg') }}"/>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{!! !empty($data_common['setting']->zalo) ? $data_common['setting']->zalo : '' !!}"
-                                   title="" target="_blank">
-                                    <img src="{{ asset('web/images/icon/ic_zalo.svg') }}"/>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{!! !empty($data_common['setting']->mxh_url1) ? $data_common['setting']->mxh_url1 : '' !!}"
-                                   title="" target="_blank">
-                                    <img src="{{ asset('web/images/icon/ic_message.svg') }}"/>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{!! !empty($data_common['setting']->instagram) ? $data_common['setting']->instagram : '' !!}"
-                                   title="" target="_blank">
-                                    <img src="{{ asset('web/images/icon/ic_instagram.svg') }}"/>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                    @if(!empty(\App\Helpers\Helpers::lang($data['detail'], "tag_content")) && strlen(\App\Helpers\Helpers::lang($data['detail'], "tag_content")) > 3)
+                        <div class="content-view ctct content-view-tagct">
+                            {!! \App\Helpers\Helpers::lang($data['detail'], "tag_content") !!}
+                        </div>
+                    @endif
                 </div>
                 <div class="show-right">
                     @foreach($data['adv1'] as $row)
@@ -176,13 +147,16 @@
                                                                 @foreach($slide_max_data[$i] as $k=>$row)
                                                                     <li>
                                                                         <div class="item">
-                                                                            <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}" title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
+                                                                            <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
+                                                                               title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
                                                                                 <img src="{{ \App\Helpers\Helpers::renderThumb($row->thumbnail, 'new_list') }}"
-                                                                                     title="{{ \App\Helpers\Helpers::lang($row, "title") }}" alt="{{ \App\Helpers\Helpers::lang($row, "title") }}"/>
+                                                                                     title="{{ \App\Helpers\Helpers::lang($row, "title") }}"
+                                                                                     alt="{{ \App\Helpers\Helpers::lang($row, "title") }}"/>
                                                                             </a>
                                                                             <div class="content-data content-data-new">
                                                                                 <h4>
-                                                                                    <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}" title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
+                                                                                    <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
+                                                                                       title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
                                                                                         {{ \App\Helpers\Helpers::lang($row, "title") }}
                                                                                     </a>
                                                                                 </h4>
@@ -241,13 +215,16 @@
                                                                 @foreach($slide_min_data[$i] as $k=>$row)
                                                                     <li>
                                                                         <div class="item">
-                                                                            <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}" title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
+                                                                            <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
+                                                                               title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
                                                                                 <img src="{{ \App\Helpers\Helpers::renderThumb($row->thumbnail, 'new_list') }}"
-                                                                                     title="{{ \App\Helpers\Helpers::lang($row, "title") }}" alt="{{ \App\Helpers\Helpers::lang($row, "title") }}"/>
+                                                                                     title="{{ \App\Helpers\Helpers::lang($row, "title") }}"
+                                                                                     alt="{{ \App\Helpers\Helpers::lang($row, "title") }}"/>
                                                                             </a>
                                                                             <div class="content-data content-data-new">
                                                                                 <h4>
-                                                                                    <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}" title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
+                                                                                    <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
+                                                                                       title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
                                                                                         {{ \App\Helpers\Helpers::lang($row, "title") }}
                                                                                     </a>
                                                                                 </h4>

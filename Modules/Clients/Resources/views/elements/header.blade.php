@@ -18,8 +18,8 @@
                     </a>
                     <img src="{{ asset('web/images/icon/lang.png') }}" style="width: 18px; margin-top: -2px;" title="" alt="">
                     <select name="lang" onchange="if (this.value) window.location.href=this.value">
-                        <option value="?lang=">Vietnamese (VN) </option>
-                        <option value="?lang=en">English (EN) </option>
+                        <option value="?lang=" <?php if(isset($_SESSION["lang"])) echo ($_SESSION["lang"] == "") ? "selected" : "" ?>>Vietnamese (VN) </option>
+                        <option value="?lang=_en" <?php if(isset($_SESSION["lang"])) echo ($_SESSION["lang"] == "_en") ? "selected" : "" ?>>English (EN) </option>
                     </select>
                 </div>
                 <div class="clear"></div>

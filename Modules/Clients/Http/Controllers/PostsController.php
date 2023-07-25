@@ -37,13 +37,10 @@ class PostsController extends Controller
         $this->clientPostService = $clientPostService;
 
         if (isset($_GET["lang"])) {
-            if (in_array($_GET["lang"], ["", "_id", "_ph"])) {
+            if (in_array($_GET["lang"], ["", "_en"])) {
                 $_SESSION["lang"] = $_GET["lang"];
 
-                $str = str_replace("?lang=_es", "", $_SERVER["HTTP_REFERER"]);
-                $str = str_replace("?lang=_pt", "", $str);
-                $str = str_replace("?lang=_id", "", $str);
-                $str = str_replace("?lang=_ph", "", $str);
+                $str = str_replace("?lang=_en", "", $_SERVER["HTTP_REFERER"]);
                 $str = str_replace("?lang=", "", $str);
 
                 if (env("ENVIROMENT") == "dev") {
@@ -64,11 +61,8 @@ class PostsController extends Controller
 //                    case "_pt":
 //                        $route = "/pt";
 //                        break;
-                    case "_id":
-                        $route = "/id";
-                        break;
-                    case "_ph":
-                        $route = "/ph";
+                    case "_en":
+                        $route = "/en";
                         break;
                     default:
                         $route = "";
@@ -80,10 +74,8 @@ class PostsController extends Controller
 //                }elseif(strpos("1".$strrep, "/pt")){
 //                    $str = str_replace("/pt", $route, $strrep);
 //                }else
-                if (strpos("1" . $strrep, "/id")) {
-                    $str = str_replace("/id", $route, $strrep);
-                } elseif (strpos("1" . $strrep, "/ph")) {
-                    $str = str_replace("/ph", $route, $strrep);
+                if (strpos("1" . $strrep, "/en")) {
+                    $str = str_replace("/en", $route, $strrep);
                 } else {
                     $str = $route . $strrep;
                 }

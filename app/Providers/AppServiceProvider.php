@@ -41,84 +41,84 @@ class AppServiceProvider extends ServiceProvider
 
 
         //redirect lang
-        if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-            $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-            if ($lang == "fi") $lang = "ph";
-            if (isset($_SERVER["HTTP_REFERER"])) if (strpos($_SERVER["HTTP_REFERER"], "google")) {
-                if (strpos($_SERVER["HTTP_REFERER"], "google.co.id")) $lang = "id";
-                if (strpos($_SERVER["HTTP_REFERER"], "google.com.ph")) $lang = "ph";
-            }
-            $acceptLang = ['id', 'ph'];
-            $lang_check = in_array($lang, $acceptLang) ? "_" . $lang : '';
-            $lang_search = in_array($lang, $acceptLang) ? $lang : '';
-
-            if (isset($_SERVER["HTTP_REFERER"])) if (strpos($_SERVER["HTTP_REFERER"], "google")) {
-                if (empty($lang_check)) {
-                    if (request()->url() != env("APP_URL")) {
-                        if (strpos(request()->url(), "/id")) {
-                            $ex = explode("/id", request()->url());
-                            if (empty($ex[1])) {
-                                header('Location: ' . env("APP_URL"));
-                                exit;
-                            } elseif (count(explode("/id/", request()->url())) == 2) {
-                                header('Location: ' . str_replace(env("APP_URL") . "/id/", env("APP_URL") . "/", request()->url()));
-                                exit;
-                            }
-                        } elseif (strpos(request()->url(), "/ph")) {
-                            $ex = explode("/ph", request()->url());
-                            if (empty($ex[1])) {
-                                header('Location: ' . env("APP_URL"));
-                                exit;
-                            } elseif (count(explode("/ph/", request()->url())) == 3) {
-                                header('Location: ' . str_replace(env("APP_URL") . "/ph/", env("APP_URL") . "/", request()->url()));
-                                exit;
-                            }
-                        }
-                    }
-                } else {
-                    if ($lang_search == "id") {
-                        $ex = explode("/ph", request()->url());
-                        if (empty($ex[1]) && isset($ex[1])) {
-                            header('Location: ' . str_replace(env("APP_URL") . "/ph", env("APP_URL") . "/id", request()->url()));
-                            exit;
-                        } elseif (count(explode("/ph/", request()->url())) == 2) {
-                            header('Location: ' . str_replace(env("APP_URL") . "/ph/", env("APP_URL") . "/id/", request()->url()));
-                            exit;
-                        } elseif (request()->url() == env("APP_URL")) {
-                            header('Location: ' . str_replace(env("APP_URL"), env("APP_URL") . "/id/", request()->url()));
-                            exit;
-                        } else {
-                            $ex = explode("/id", request()->url());
-                            if (!isset($ex[1])) {
-                                header('Location: ' . str_replace(env("APP_URL"), env("APP_URL") . "/id", request()->url()));
-                                exit;
-                            }
-                        }
-                    } else {
-                        if ($lang_search == "ph") {
-                            $ex = explode("/id", request()->url());
-                            if (empty($ex[1]) && isset($ex[1])) {
-                                header('Location: ' . str_replace(env("APP_URL") . "/id", env("APP_URL") . "/ph", request()->url()));
-                                exit;
-                            } elseif (count(explode("/id/", request()->url())) == 2) {
-                                header('Location: ' . str_replace(env("APP_URL") . "/id/", env("APP_URL") . "/ph/", request()->url()));
-                                exit;
-                            } elseif (request()->url() == env("APP_URL")) {
-                                header('Location: ' . str_replace(env("APP_URL"), env("APP_URL") . "/ph/", request()->url()));
-                                exit;
-                            } else {
-                                $ex = explode("/ph", request()->url());
-                                if (!isset($ex[1])) {
-                                    header('Location: ' . str_replace(env("APP_URL"), env("APP_URL") . "/ph", request()->url()));
-                                    exit;
-                                }
-                            }
-                        }
-                    }
-
-                }
-            }
-        }
+//        if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+//            $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+//            if ($lang == "fi") $lang = "ph";
+//            if (isset($_SERVER["HTTP_REFERER"])) if (strpos($_SERVER["HTTP_REFERER"], "google")) {
+//                if (strpos($_SERVER["HTTP_REFERER"], "google.co.id")) $lang = "id";
+//                if (strpos($_SERVER["HTTP_REFERER"], "google.com.ph")) $lang = "ph";
+//            }
+//            $acceptLang = ['id', 'ph'];
+//            $lang_check = in_array($lang, $acceptLang) ? "_" . $lang : '';
+//            $lang_search = in_array($lang, $acceptLang) ? $lang : '';
+//
+//            if (isset($_SERVER["HTTP_REFERER"])) if (strpos($_SERVER["HTTP_REFERER"], "google")) {
+//                if (empty($lang_check)) {
+//                    if (request()->url() != env("APP_URL")) {
+//                        if (strpos(request()->url(), "/id")) {
+//                            $ex = explode("/id", request()->url());
+//                            if (empty($ex[1])) {
+//                                header('Location: ' . env("APP_URL"));
+//                                exit;
+//                            } elseif (count(explode("/id/", request()->url())) == 2) {
+//                                header('Location: ' . str_replace(env("APP_URL") . "/id/", env("APP_URL") . "/", request()->url()));
+//                                exit;
+//                            }
+//                        } elseif (strpos(request()->url(), "/ph")) {
+//                            $ex = explode("/ph", request()->url());
+//                            if (empty($ex[1])) {
+//                                header('Location: ' . env("APP_URL"));
+//                                exit;
+//                            } elseif (count(explode("/ph/", request()->url())) == 3) {
+//                                header('Location: ' . str_replace(env("APP_URL") . "/ph/", env("APP_URL") . "/", request()->url()));
+//                                exit;
+//                            }
+//                        }
+//                    }
+//                } else {
+//                    if ($lang_search == "id") {
+//                        $ex = explode("/ph", request()->url());
+//                        if (empty($ex[1]) && isset($ex[1])) {
+//                            header('Location: ' . str_replace(env("APP_URL") . "/ph", env("APP_URL") . "/id", request()->url()));
+//                            exit;
+//                        } elseif (count(explode("/ph/", request()->url())) == 2) {
+//                            header('Location: ' . str_replace(env("APP_URL") . "/ph/", env("APP_URL") . "/id/", request()->url()));
+//                            exit;
+//                        } elseif (request()->url() == env("APP_URL")) {
+//                            header('Location: ' . str_replace(env("APP_URL"), env("APP_URL") . "/id/", request()->url()));
+//                            exit;
+//                        } else {
+//                            $ex = explode("/id", request()->url());
+//                            if (!isset($ex[1])) {
+//                                header('Location: ' . str_replace(env("APP_URL"), env("APP_URL") . "/id", request()->url()));
+//                                exit;
+//                            }
+//                        }
+//                    } else {
+//                        if ($lang_search == "ph") {
+//                            $ex = explode("/id", request()->url());
+//                            if (empty($ex[1]) && isset($ex[1])) {
+//                                header('Location: ' . str_replace(env("APP_URL") . "/id", env("APP_URL") . "/ph", request()->url()));
+//                                exit;
+//                            } elseif (count(explode("/id/", request()->url())) == 2) {
+//                                header('Location: ' . str_replace(env("APP_URL") . "/id/", env("APP_URL") . "/ph/", request()->url()));
+//                                exit;
+//                            } elseif (request()->url() == env("APP_URL")) {
+//                                header('Location: ' . str_replace(env("APP_URL"), env("APP_URL") . "/ph/", request()->url()));
+//                                exit;
+//                            } else {
+//                                $ex = explode("/ph", request()->url());
+//                                if (!isset($ex[1])) {
+//                                    header('Location: ' . str_replace(env("APP_URL"), env("APP_URL") . "/ph", request()->url()));
+//                                    exit;
+//                                }
+//                            }
+//                        }
+//                    }
+//
+//                }
+//            }
+//        }
 
 //        if (empty($lang_check)) {
 //            if (request()->url() != env("APP_URL")) {
@@ -169,9 +169,9 @@ class AppServiceProvider extends ServiceProvider
         }
 
 
-//        if(in_array(env('ENVIROMENT'), ['production'])) {
-        //          \URL::forceScheme('https');
-        //    }
+        if(in_array(env('ENVIROMENT'), ['production'])) {
+                  \URL::forceScheme('https');
+            }
     }
 
     public function findData()

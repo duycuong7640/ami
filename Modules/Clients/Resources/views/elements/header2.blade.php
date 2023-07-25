@@ -17,9 +17,9 @@
                         {{ \App\Helpers\Helpers::lang($data['truso'], "title") }}
                     </a>
                     <img src="{{ asset('web/images/icon/lang.png') }}" style="width: 18px; margin-top: -2px;" title="" alt="">
-                    <select>
-                        <option>Vietnamese (VN) </option>
-                        <option>English (EN) </option>
+                    <select name="lang" onchange="if (this.value) window.location.href=this.value">
+                        <option value="?lang=" <?php if(isset($_SESSION["lang"])) echo ($_SESSION["lang"] == "") ? "selected" : "" ?>>Vietnamese (VN) </option>
+                        <option value="?lang=_en" <?php if(isset($_SESSION["lang"])) echo ($_SESSION["lang"] == "_en") ? "selected" : "" ?>>English (EN) </option>
                     </select>
                 </div>
                 <div class="clear"></div>

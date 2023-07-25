@@ -12,52 +12,181 @@
         </section>
         <section class="wrap-new-category">
             <div class="main-width">
-{{--                @if($data['category']->st)--}}
-{{--                    <div class="fillter-bc">--}}
-{{--                        <form method="get">--}}
-{{--                            <div class="fl-ct">--}}
-{{--                                Thời gian từ--}}
-{{--                                <select name="start" onchange="this.form.submit()">--}}
-{{--                                    @for($i=2000; $i<=2100; $i++)--}}
-{{--                                        <option value="{{$i}}">{{$i}}</option>--}}
-{{--                                    @endfor--}}
-{{--                                </select>--}}
-{{--                                Đến--}}
-{{--                                <select name="end" onchange="this.form.submit()">--}}
-{{--                                    <option value=""></option>--}}
-{{--                                    @for($i=2000; $i<=2100; $i++)--}}
-{{--                                        <option value="{{$i}}">{{$i}}</option>--}}
-{{--                                    @endfor--}}
-{{--                                </select>--}}
-{{--                            </div>--}}
-{{--                        </form>--}}
-{{--                    </div>--}}
-{{--                @endif--}}
-{{--                <div class="cate">--}}
-{{--                    <label class="title">{{ \App\Helpers\Helpers::langDefine('TIN TỨC CẬP NHẬT') }}</label>--}}
-{{--                </div>--}}
+                {{--                @if($data['category']->st)--}}
+                {{--                    <div class="fillter-bc">--}}
+                {{--                        <form method="get">--}}
+                {{--                            <div class="fl-ct">--}}
+                {{--                                Thời gian từ--}}
+                {{--                                <select name="start" onchange="this.form.submit()">--}}
+                {{--                                    @for($i=2000; $i<=2100; $i++)--}}
+                {{--                                        <option value="{{$i}}">{{$i}}</option>--}}
+                {{--                                    @endfor--}}
+                {{--                                </select>--}}
+                {{--                                Đến--}}
+                {{--                                <select name="end" onchange="this.form.submit()">--}}
+                {{--                                    <option value=""></option>--}}
+                {{--                                    @for($i=2000; $i<=2100; $i++)--}}
+                {{--                                        <option value="{{$i}}">{{$i}}</option>--}}
+                {{--                                    @endfor--}}
+                {{--                                </select>--}}
+                {{--                            </div>--}}
+                {{--                        </form>--}}
+                {{--                    </div>--}}
+                {{--                @endif--}}
+                {{--                <div class="cate">--}}
+                {{--                    <label class="title">{{ \App\Helpers\Helpers::langDefine('TIN TỨC CẬP NHẬT') }}</label>--}}
+                {{--                </div>--}}
                 <div class="wrap-news">
                     <div class="news-list">
                         <ul>
-                            @foreach($data['newpost'] as $k=>$row)
-                                    <li style="{{ $k >= 6 ? 'display: none' : '' }}">
-                                        <div class="item bg-it">
-                                            <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}" title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
-                                                <img src="{{ \App\Helpers\Helpers::renderThumb($row->thumbnail, 'new_list') }}"
-                                                     title="{{ \App\Helpers\Helpers::lang($row, "title") }}" alt="{{ \App\Helpers\Helpers::lang($row, "title") }}"/>
-                                            </a>
-                                            <div class="content-data content-data-new">
-                                                <h4>
-                                                    <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}" title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
-                                                        {{ \App\Helpers\Helpers::lang($row, "title") }}
-                                                    </a>
-                                                </h4>
-                                                <div class="shortdes">
-                                                    {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($row, "description"), 180) !!}
+                            @foreach($data['newpost'] as $k=>$i)
+                                @if(!$k)
+                                    <li>
+                                        <div class="relative">
+                                            <div class="absolute bg-new-i"
+                                                 style='background: url("{{ \App\Helpers\Helpers::renderThumb($i->thumbnail, 'new_list_big') }}")'></div>
+                                            <div class="item bg-it">
+                                                <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                   title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                    <img src="{{ \App\Helpers\Helpers::renderThumb($i->thumbnail, 'new_list') }}"
+                                                         title="{{ \App\Helpers\Helpers::lang($i, "title") }}"
+                                                         alt="{{ \App\Helpers\Helpers::lang($i, "title") }}"/>
+                                                </a>
+                                                <div class="content-data content-dataff">
+                                                    <div class="category-nh">
+                                                        {{ !empty($data['cates'][$i->category_id]) ? \App\Helpers\Helpers::lang($data['cates'][$i->category_id], "title") : ''}}
+                                                    </div>
+                                                    <h4 class="wow fadeInRight" data-wow-offset="2">
+                                                        <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                           title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                            {{ \App\Helpers\Helpers::lang($i, "title") }}
+                                                        </a>
+                                                    </h4>
+                                                    <div class="shortdes wow fadeInLeft"
+                                                         data-wow-offset="2">
+                                                        {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($i, "description"), 200) !!}
+                                                    </div>
+                                                </div>
+                                                <div class="w-viewmore">
+                                                    <div class="detail-viewmore">
+                                                        <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                           title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                            {{ \App\Helpers\Helpers::langDefine('Xem thêm') }}
+                                                        </a>
+                                                    </div>
+                                                    <div class="dtime">
+                                                        {{ \App\Helpers\Helpers::calDate(strtotime($i->created_at)) }}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
+                                    <li>
+                                        <div class="relative">
+                                            <div class="absolute style-2new bg-it">
+                                                <div class="item bg-it">
+                                                    <div class="content-data content-dataff">
+                                                        <div class="category-nh">
+                                                            {{ !empty($data['cates'][$i->category_id]) ? \App\Helpers\Helpers::lang($data['cates'][$i->category_id], "title") : ''}}
+                                                        </div>
+                                                        <h4 class="wow fadeInRight" data-wow-offset="2">
+                                                            <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                               title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                                {{ \App\Helpers\Helpers::lang($i, "title") }}
+                                                            </a>
+                                                        </h4>
+                                                        <div class="shortdes wow fadeInLeft"
+                                                             data-wow-offset="2">
+                                                            {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($i, "description"), 200) !!}
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-viewmore">
+                                                        <div class="detail-viewmore">
+                                                            <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                               title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                                {{ \App\Helpers\Helpers::langDefine('Xem thêm') }}
+                                                            </a>
+                                                        </div>
+                                                        <div class="dtime">
+                                                            {{ \App\Helpers\Helpers::calDate(strtotime($i->created_at)) }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item bg-it">
+                                                <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                   title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                    <img src="{{ \App\Helpers\Helpers::renderThumb($i->thumbnail, 'new_list') }}"
+                                                         title="{{ \App\Helpers\Helpers::lang($i, "title") }}"
+                                                         alt="{{ \App\Helpers\Helpers::lang($i, "title") }}"/>
+                                                </a>
+                                                <div class="content-data content-dataff">
+                                                    <div class="category-nh">
+                                                        {{ !empty($data['cates'][$i->category_id]) ? \App\Helpers\Helpers::lang($data['cates'][$i->category_id], "title") : ''}}
+                                                    </div>
+                                                    <h4 class="wow fadeInRight" data-wow-offset="2">
+                                                        <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                           title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                            {{ \App\Helpers\Helpers::lang($i, "title") }}
+                                                        </a>
+                                                    </h4>
+                                                    <div class="shortdes wow fadeInLeft"
+                                                         data-wow-offset="2">
+                                                        {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($i, "description"), 200) !!}
+                                                    </div>
+                                                </div>
+                                                <div class="w-viewmore">
+                                                    <div class="detail-viewmore">
+                                                        <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                           title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                            {{ \App\Helpers\Helpers::langDefine('Xem thêm') }}
+                                                        </a>
+                                                    </div>
+                                                    <div class="dtime">
+                                                        {{ \App\Helpers\Helpers::calDate(strtotime($i->created_at)) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @else
+                                    <li style="{{ $k >= 5 ? 'display: none' : '' }}">
+                                        <div class="item bg-it">
+                                            <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                               title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                <img src="{{ \App\Helpers\Helpers::renderThumb($i->thumbnail, 'new_list') }}"
+                                                     title="{{ \App\Helpers\Helpers::lang($i, "title") }}"
+                                                     alt="{{ \App\Helpers\Helpers::lang($i, "title") }}"/>
+                                            </a>
+                                            <div class="content-data content-dataff">
+                                                <div class="category-nh">
+                                                    {{ !empty($data['cates'][$i->category_id]) ? \App\Helpers\Helpers::lang($data['cates'][$i->category_id], "title") : ''}}
+                                                </div>
+                                                <h4 class="wow fadeInRight" data-wow-offset="2">
+                                                    <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                       title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                        {{ \App\Helpers\Helpers::lang($i, "title") }}
+                                                    </a>
+                                                </h4>
+                                                <div class="shortdes wow fadeInLeft"
+                                                     data-wow-offset="2">
+                                                    {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($i, "description"), 200) !!}
+                                                </div>
+                                            </div>
+                                            <div class="w-viewmore">
+                                                <div class="detail-viewmore">
+                                                    <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                       title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                        {{ \App\Helpers\Helpers::langDefine('Xem thêm') }}
+                                                    </a>
+                                                </div>
+                                                <div class="dtime">
+                                                    {{ \App\Helpers\Helpers::calDate(strtotime($i->created_at)) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endif
                             @endforeach
                         </ul>
                         <div style="clear: both;"></div>
@@ -75,6 +204,7 @@
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
+
         $(document).scroll(function () {
             loading();
         });
@@ -92,8 +222,8 @@
                 for (var i = 0; i < listLi.length; i++) {
                     if (listLi[i].getAttribute('style') === 'display: none') {
                         listLi[i].removeAttribute('style');
-                        j ++;
-                        if(j >= 6) break;
+                        j++;
+                        if (j >= 6) break;
                     }
                 }
                 $('.wrap-loading').hide();

@@ -408,41 +408,152 @@
                                     <ul>
                                         @foreach($data["home_new_cate_post"][$row->id] as $ki=>$i)
                                             @if($ki >= 0)
-                                                <li>
-                                                    <div class="item">
-                                                        <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
-                                                           title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
-                                                            <img src="{{ \App\Helpers\Helpers::renderThumb($i->thumbnail, 'new_list') }}"
-                                                                 title="{{ \App\Helpers\Helpers::lang($i, "title") }}"
-                                                                 alt="{{ \App\Helpers\Helpers::lang($i, "title") }}"/>
-                                                        </a>
-                                                        <div class="content-data content-dataff">
-                                                            <div class="category-nh">
-                                                                {{$row->title}}
-                                                            </div>
-                                                            <h4 class="wow fadeInRight" data-wow-offset="2">
+                                                @if(!$ki)
+                                                    <li>
+                                                        <div class="relative">
+                                                            <div class="absolute bg-new-i" style='background: url("{{ \App\Helpers\Helpers::renderThumb($i->thumbnail, 'new_list_big') }}")'></div>
+                                                            <div class="item">
                                                                 <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
                                                                    title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
-                                                                    {{ \App\Helpers\Helpers::lang($i, "title") }}
+                                                                    <img src="{{ \App\Helpers\Helpers::renderThumb($i->thumbnail, 'new_list') }}"
+                                                                         title="{{ \App\Helpers\Helpers::lang($i, "title") }}"
+                                                                         alt="{{ \App\Helpers\Helpers::lang($i, "title") }}"/>
                                                                 </a>
-                                                            </h4>
-                                                            <div class="shortdes wow fadeInLeft" data-wow-offset="2">
-                                                                {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($i, "description"), 200) !!}
+                                                                <div class="content-data content-dataff">
+                                                                    <div class="category-nh">
+                                                                        {{$row->title}}
+                                                                    </div>
+                                                                    <h4 class="wow fadeInRight" data-wow-offset="2">
+                                                                        <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                                           title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                                            {{ \App\Helpers\Helpers::lang($i, "title") }}
+                                                                        </a>
+                                                                    </h4>
+                                                                    <div class="shortdes wow fadeInLeft"
+                                                                         data-wow-offset="2">
+                                                                        {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($i, "description"), 200) !!}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="w-viewmore">
+                                                                    <div class="detail-viewmore">
+                                                                        <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                                           title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                                            {{ \App\Helpers\Helpers::langDefine('Xem thêm') }}
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="dtime">
+                                                                        {{ \App\Helpers\Helpers::calDate(strtotime($i->created_at)) }}
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="w-viewmore">
-                                                            <div class="detail-viewmore">
+                                                    </li>
+                                                    <li>
+                                                        <div class="relative">
+                                                            <div class="absolute style-2new">
+                                                                <div class="item">
+                                                                    <div class="content-data content-dataff">
+                                                                        <div class="category-nh">
+                                                                            {{$row->title}}
+                                                                        </div>
+                                                                        <h4 class="wow fadeInRight" data-wow-offset="2">
+                                                                            <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                                               title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                                                {{ \App\Helpers\Helpers::lang($i, "title") }}
+                                                                            </a>
+                                                                        </h4>
+                                                                        <div class="shortdes wow fadeInLeft"
+                                                                             data-wow-offset="2">
+                                                                            {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($i, "description"), 200) !!}
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="w-viewmore">
+                                                                        <div class="detail-viewmore">
+                                                                            <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                                               title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                                                {{ \App\Helpers\Helpers::langDefine('Xem thêm') }}
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="dtime">
+                                                                            {{ \App\Helpers\Helpers::calDate(strtotime($i->created_at)) }}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
                                                                 <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
                                                                    title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
-                                                                    {{ \App\Helpers\Helpers::langDefine('Xem thêm') }}
+                                                                    <img src="{{ \App\Helpers\Helpers::renderThumb($i->thumbnail, 'new_list') }}"
+                                                                         title="{{ \App\Helpers\Helpers::lang($i, "title") }}"
+                                                                         alt="{{ \App\Helpers\Helpers::lang($i, "title") }}"/>
                                                                 </a>
-                                                            </div>
-                                                            <div class="dtime">
-                                                                {{ \App\Helpers\Helpers::calDate(strtotime($i->created_at)) }}
+                                                                <div class="content-data content-dataff">
+                                                                    <div class="category-nh">
+                                                                        {{$row->title}}
+                                                                    </div>
+                                                                    <h4 class="wow fadeInRight" data-wow-offset="2">
+                                                                        <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                                           title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                                            {{ \App\Helpers\Helpers::lang($i, "title") }}
+                                                                        </a>
+                                                                    </h4>
+                                                                    <div class="shortdes wow fadeInLeft"
+                                                                         data-wow-offset="2">
+                                                                        {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($i, "description"), 200) !!}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="w-viewmore">
+                                                                    <div class="detail-viewmore">
+                                                                        <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                                           title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                                            {{ \App\Helpers\Helpers::langDefine('Xem thêm') }}
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="dtime">
+                                                                        {{ \App\Helpers\Helpers::calDate(strtotime($i->created_at)) }}
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </li>
+                                                    </li>
+                                                @else
+                                                    <li>
+                                                        <div class="item">
+                                                            <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                               title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                                <img src="{{ \App\Helpers\Helpers::renderThumb($i->thumbnail, 'new_list') }}"
+                                                                     title="{{ \App\Helpers\Helpers::lang($i, "title") }}"
+                                                                     alt="{{ \App\Helpers\Helpers::lang($i, "title") }}"/>
+                                                            </a>
+                                                            <div class="content-data content-dataff">
+                                                                <div class="category-nh">
+                                                                    {{$row->title}}
+                                                                </div>
+                                                                <h4 class="wow fadeInRight" data-wow-offset="2">
+                                                                    <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                                       title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                                        {{ \App\Helpers\Helpers::lang($i, "title") }}
+                                                                    </a>
+                                                                </h4>
+                                                                <div class="shortdes wow fadeInLeft"
+                                                                     data-wow-offset="2">
+                                                                    {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($i, "description"), 200) !!}
+                                                                </div>
+                                                            </div>
+                                                            <div class="w-viewmore">
+                                                                <div class="detail-viewmore">
+                                                                    <a href="{{ route('client.post.show', ['slug' => $i->slug]) }}"
+                                                                       title="{{ \App\Helpers\Helpers::lang($i, "title") }}">
+                                                                        {{ \App\Helpers\Helpers::langDefine('Xem thêm') }}
+                                                                    </a>
+                                                                </div>
+                                                                <div class="dtime">
+                                                                    {{ \App\Helpers\Helpers::calDate(strtotime($i->created_at)) }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                @endif
                                             @endif
                                         @endforeach
                                     </ul>
@@ -532,8 +643,8 @@
             }
         }
 
-        // setInterval(function () {
-        //     showDataCarol(1);
-        // }, 5000);
+        setInterval(function () {
+            showDataCarol(1);
+        }, 5000);
     </script>
 @endsection

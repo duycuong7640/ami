@@ -159,6 +159,10 @@
                                     <textarea class="ckeditor" name="content"></textarea>
                                 </div>
                                 <div class="form-group">
+                                    <label>Tag content</label>
+                                    <textarea class="ckeditor" name="tag_content"></textarea>
+                                </div>
+                                <div class="form-group">
                                     <label>Trạng thái</label>
                                     <div class="row">
                                         <div class="col-sm-2">
@@ -200,6 +204,10 @@
                                 <div class="form-group">
                                     <label>Nội dung</label>
                                     <textarea class="ckeditor" name="content_en"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tag content</label>
+                                    <textarea class="ckeditor" name="tag_content_en"></textarea>
                                 </div>
                             </div>
                         </div>

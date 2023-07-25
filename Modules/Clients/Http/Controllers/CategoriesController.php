@@ -42,13 +42,10 @@ class CategoriesController extends Controller
         $this->clientPostService = $clientPostService;
 
         if (isset($_GET["lang"])) {
-            if (in_array($_GET["lang"], ["", "_id", "_ph"])) {
+            if (in_array($_GET["lang"], ["", "_en"])) {
                 $_SESSION["lang"] = $_GET["lang"];
 
-                $str = str_replace("?lang=_es", "", $_SERVER["HTTP_REFERER"]);
-                $str = str_replace("?lang=_pt", "", $str);
-                $str = str_replace("?lang=_id", "", $str);
-                $str = str_replace("?lang=_ph", "", $str);
+                $str = str_replace("?lang=_en", "", $_SERVER["HTTP_REFERER"]);
                 $str = str_replace("?lang=", "", $str);
 
                 if (env("ENVIROMENT") == "dev") {
@@ -69,11 +66,8 @@ class CategoriesController extends Controller
 //                    case "_pt":
 //                        $route = "/pt";
 //                        break;
-                    case "_id":
-                        $route = "/id";
-                        break;
-                    case "_ph":
-                        $route = "/ph";
+                    case "_en":
+                        $route = "/en";
                         break;
                     default:
                         $route = "";
@@ -85,10 +79,8 @@ class CategoriesController extends Controller
 //                } elseif (strpos("1" . $strrep, "/pt")) {
 //                    $str = str_replace("/pt", $route, $strrep);
 //                } else
-                if (strpos("1" . $strrep, "/id")) {
-                    $str = str_replace("/id", $route, $strrep);
-                } elseif (strpos("1" . $strrep, "/ph")) {
-                    $str = str_replace("/ph", $route, $strrep);
+                if (strpos("1" . $strrep, "/en")) {
+                    $str = str_replace("/en", $route, $strrep);
                 } else {
                     $str = $route . $strrep;
                 }
@@ -140,18 +132,28 @@ class CategoriesController extends Controller
                     return view('clients::posts.ami.manager', compact('data'));
                 case 'new':
                     $data['cate'] = $this->clientCategoryService->findListParentId($data['category']->id);
-                    $data['newpost'] = $this->clientPostService->getListByCate(['cate_multi' => $this->clientCategoryService->multiCate($data['category']->id), 'limit' => 500]);
                     if (count($data['cate']) > 0) {
+                        $data["page_new_cate_post"] = [];
+                        foreach ($data['cate'] as $row) {
+                            $data["page_new_cate_post"][$row->id] = $this->clientPostService->getListByCategoryNotPaginate(['cate_multi' => $this->clientCategoryService->multiCate($row->id), 'limit' => 500]);
+                        }
+
                         return view('clients::posts.index_category', compact('data'));
                     } else {
+                        $data['newpost'] = $this->clientPostService->getListByCate(['cate_multi' => $this->clientCategoryService->multiCate($data['category']->id), 'limit' => 500]);
                         return view('clients::posts.index', compact('data'));
                     }
                 case 'new_event':
                     $data['cate'] = $this->clientCategoryService->findListParentId($data['category']->id);
-                    $data['newpost'] = $this->clientPostService->getListByCateEvent(['cate_multi' => $this->clientCategoryService->multiCate($data['category']->id), 'limit' => 500]);
                     if (count($data['cate']) > 0) {
+                        $data["page_new_cate_post"] = [];
+                        foreach ($data['cate'] as $row) {
+                            $data["page_new_cate_post"][$row->id] = $this->clientPostService->getListByCategoryNotPaginateEvent(['cate_multi' => $this->clientCategoryService->multiCate($row->id), 'limit' => 500]);
+                        }
+
                         return view('clients::posts.event.index_category', compact('data'));
                     } else {
+                        $data['newpost'] = $this->clientPostService->getListByCateEvent(['cate_multi' => $this->clientCategoryService->multiCate($data['category']->id), 'limit' => 500]);
                         return view('clients::posts.event.index', compact('data'));
                     }
                 case 'product':

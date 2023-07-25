@@ -15,9 +15,9 @@
                 <div class="cate">
                     <ul>
                         @foreach($data['cate'] as $k=>$row)
-                            <li class="{{ !$k ? 'active' : '' }}">
+                            <li class="ami-new-click {{ !$k ? 'active' : '' }}" data-id="{{ $row->id }}">
                                 <h2>
-                                    <a href="{{ route('client.category.index', ['slug' => $row->slug]) }}"
+                                    <a href="javascript:void(0);"
                                        title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
                                         {{ \App\Helpers\Helpers::lang($row, "title") }}
                                     </a>
@@ -47,124 +47,212 @@
                         </form>
                     </div>
                 @endif
-                <div class="wrap-news">
-                    {{--                    @foreach($data['newpost'] as $row)--}}
-                    {{--                        <div class="new-hot">--}}
-                    {{--                            <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}" title="{{ \App\Helpers\Helpers::lang($row, "title") }}">--}}
-                    {{--                                <img src="{{ \App\Helpers\Helpers::renderThumb($row->thumbnail, 'new_hot') }}"--}}
-                    {{--                                     title="{{ \App\Helpers\Helpers::lang($row, "title") }}"--}}
-                    {{--                                     alt="{{ \App\Helpers\Helpers::lang($row, "title") }}"/>--}}
-                    {{--                            </a>--}}
-                    {{--                            <div class="content-data">--}}
-                    {{--                                <h3>--}}
-                    {{--                                    <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}" title="{{ \App\Helpers\Helpers::lang($row, "title") }}">--}}
-                    {{--                                        {{ \App\Helpers\Helpers::lang($row, "title") }}--}}
-                    {{--                                    </a>--}}
-                    {{--                                </h3>--}}
-                    {{--                                <div class="shortdes">--}}
-                    {{--                                    {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($row, "description"), 400) !!}--}}
-                    {{--                                </div>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    {{--                        @php break; @endphp--}}
-                    {{--                    @endforeach--}}
-                    <div class="news-list">
-                        <ul>
-                            @foreach($data['newpost'] as $k=>$row)
-                                @if($k >= 0)
-                                    <li class="relative evhv" style="{{ $k >= 7 ? 'display: none' : '' }}">
-                                        <div class="item item_hvn bg-it">
-                                            <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
-                                               title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
-                                                <img src="{{ \App\Helpers\Helpers::renderThumb($row->thumbnail, 'new_list') }}"
-                                                     title="{{ \App\Helpers\Helpers::lang($row, "title") }}"
-                                                     alt="{{ \App\Helpers\Helpers::lang($row, "title") }}"/>
-                                            </a>
-                                            <div class="content-data">
-                                                <div class="category-nh">
-                                                    {{ !empty($data['cates'][$row->category_id]) ? \App\Helpers\Helpers::lang($data['cates'][$row->category_id], "title") : ''}}
+
+                @foreach($data['cate'] as $kc=>$r)
+                    <div class="wrap-news ami-new ami-new-{{ $r->id }}" style="{{ $kc > 0 ? 'display: none' : '' }}">
+                        <div class="news-list">
+                            <ul>
+                                @foreach($data["page_new_cate_post"][$r->id] as $k=>$row)
+                                    @if($k >= 0)
+                                        @if(!$k)
+                                            <li>
+                                                <div class="relative">
+                                                    <div class="absolute bg-new-i"
+                                                         style='background: url("{{ \App\Helpers\Helpers::renderThumb($row->thumbnail, 'new_list_big') }}")'></div>
+                                                    <div class="item bg-it">
+                                                        <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
+                                                           title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
+                                                            <img src="{{ \App\Helpers\Helpers::renderThumb($row->thumbnail, 'new_list') }}"
+                                                                 title="{{ \App\Helpers\Helpers::lang($row, "title") }}"
+                                                                 alt="{{ \App\Helpers\Helpers::lang($row, "title") }}"/>
+                                                        </a>
+                                                        <div class="content-data">
+                                                            <div class="category-nh">
+                                                                {{ !empty($data['cates'][$row->category_id]) ? \App\Helpers\Helpers::lang($data['cates'][$row->category_id], "title") : ''}}
+                                                            </div>
+                                                            <h4>
+                                                                <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
+                                                                   title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
+                                                                    {{ \App\Helpers\Helpers::lang($row, "title") }}
+                                                                </a>
+                                                            </h4>
+                                                            <div class="shortdes">
+                                                                {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($row, "description"), 180) !!}
+                                                            </div>
+                                                            <div class="b-view-event">
+                                                                <div class="l">
+                                                                    <div class="info-add date">
+                                                                        <span>{{ \App\Helpers\Helpers::calDate(strtotime($row->created_at)) }}</span>
+                                                                    </div>
+                                                                    <div class="info-add localtion">
+                                                                        <a href="{{ $row->tai_link }}"
+                                                                           target="_blank">{{ \App\Helpers\Helpers::lang($row, "tai") }}</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="r">
+                                                                    <div class="detail-viewmore">
+                                                                        <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
+                                                                           title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
+                                                                            {{ \App\Helpers\Helpers::langDefine('Xem thêm') }}
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <h4>
+                                            </li>
+                                            <li>
+                                                <div class="relative">
+                                                    <div class="absolute style-2new bg-it">
+                                                        <div class="item bg-it">
+                                                            <div class="content-data">
+                                                                <div class="category-nh">
+                                                                    {{ !empty($data['cates'][$row->category_id]) ? \App\Helpers\Helpers::lang($data['cates'][$row->category_id], "title") : ''}}
+                                                                </div>
+                                                                <h4>
+                                                                    <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
+                                                                       title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
+                                                                        {{ \App\Helpers\Helpers::lang($row, "title") }}
+                                                                    </a>
+                                                                </h4>
+                                                                <div class="shortdes">
+                                                                    {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($row, "description"), 180) !!}
+                                                                </div>
+                                                                <div class="b-view-event">
+                                                                    <div class="l">
+                                                                        <div class="info-add date">
+                                                                            <span>{{ \App\Helpers\Helpers::calDate(strtotime($row->created_at)) }}</span>
+                                                                        </div>
+                                                                        <div class="info-add localtion">
+                                                                            <a href="{{ $row->tai_link }}"
+                                                                               target="_blank">{{ \App\Helpers\Helpers::lang($row, "tai") }}</a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="r">
+                                                                        <div class="detail-viewmore">
+                                                                            <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
+                                                                               title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
+                                                                                {{ \App\Helpers\Helpers::langDefine('Xem thêm') }}
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item bg-it">
+                                                        <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
+                                                           title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
+                                                            <img src="{{ \App\Helpers\Helpers::renderThumb($row->thumbnail, 'new_list') }}"
+                                                                 title="{{ \App\Helpers\Helpers::lang($row, "title") }}"
+                                                                 alt="{{ \App\Helpers\Helpers::lang($row, "title") }}"/>
+                                                        </a>
+                                                        <div class="content-data">
+                                                            <div class="category-nh">
+                                                                {{ !empty($data['cates'][$row->category_id]) ? \App\Helpers\Helpers::lang($data['cates'][$row->category_id], "title") : ''}}
+                                                            </div>
+                                                            <h4>
+                                                                <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
+                                                                   title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
+                                                                    {{ \App\Helpers\Helpers::lang($row, "title") }}
+                                                                </a>
+                                                            </h4>
+                                                            <div class="shortdes">
+                                                                {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($row, "description"), 180) !!}
+                                                            </div>
+                                                            <div class="b-view-event">
+                                                                <div class="l">
+                                                                    <div class="info-add date">
+                                                                        <span>{{ \App\Helpers\Helpers::calDate(strtotime($row->created_at)) }}</span>
+                                                                    </div>
+                                                                    <div class="info-add localtion">
+                                                                        <a href="{{ $row->tai_link }}"
+                                                                           target="_blank">{{ \App\Helpers\Helpers::lang($row, "tai") }}</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="r">
+                                                                    <div class="detail-viewmore">
+                                                                        <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
+                                                                           title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
+                                                                            {{ \App\Helpers\Helpers::langDefine('Xem thêm') }}
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        @else
+                                            <li class="relative evhv" style="{{ $k >= 8 ? 'display: none' : '' }}">
+                                                <div class="item bg-it">
                                                     <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
                                                        title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
-                                                        {{ \App\Helpers\Helpers::lang($row, "title") }}
+                                                        <img src="{{ \App\Helpers\Helpers::renderThumb($row->thumbnail, 'new_list') }}"
+                                                             title="{{ \App\Helpers\Helpers::lang($row, "title") }}"
+                                                             alt="{{ \App\Helpers\Helpers::lang($row, "title") }}"/>
                                                     </a>
-                                                </h4>
-                                                <div class="shortdes">
-                                                    {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($row, "description"), 180) !!}
-                                                </div>
-                                                <div class="b-view-event">
-                                                    <div class="l">
-                                                        <div class="info-add date">
-                                                            <span>{{ \App\Helpers\Helpers::calDate(strtotime($row->created_at)) }}</span>
+                                                    <div class="content-data">
+                                                        <div class="category-nh">
+                                                            {{ !empty($data['cates'][$row->category_id]) ? \App\Helpers\Helpers::lang($data['cates'][$row->category_id], "title") : ''}}
                                                         </div>
-                                                        <div class="info-add localtion">
-                                                            <a href="{{ $row->tai_link }}"
-                                                               target="_blank">{{ \App\Helpers\Helpers::lang($row, "tai") }}</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="r">
-                                                        <div class="detail-viewmore">
+                                                        <h4>
                                                             <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
                                                                title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
-                                                                {{ \App\Helpers\Helpers::langDefine('Xem thêm') }}
+                                                                {{ \App\Helpers\Helpers::lang($row, "title") }}
                                                             </a>
+                                                        </h4>
+                                                        <div class="shortdes">
+                                                            {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($row, "description"), 180) !!}
+                                                        </div>
+                                                        <div class="b-view-event">
+                                                            <div class="l">
+                                                                <div class="info-add date">
+                                                                    <span>{{ \App\Helpers\Helpers::calDate(strtotime($row->created_at)) }}</span>
+                                                                </div>
+                                                                <div class="info-add localtion">
+                                                                    <a href="{{ $row->tai_link }}"
+                                                                       target="_blank">{{ \App\Helpers\Helpers::lang($row, "tai") }}</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="r">
+                                                                <div class="detail-viewmore">
+                                                                    <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
+                                                                       title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
+                                                                        {{ \App\Helpers\Helpers::langDefine('Xem thêm') }}
+                                                                    </a>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="item item_hv bg-it">
-                                            <div class="content-data">
-                                                <div class="category-nh">
-                                                    {{ !empty($data['cates'][$row->category_id]) ? \App\Helpers\Helpers::lang($data['cates'][$row->category_id], "title") : ''}}
-                                                </div>
-                                                <h4>
-                                                    <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
-                                                       title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
-                                                        {{ \App\Helpers\Helpers::lang($row, "title") }}
-                                                    </a>
-                                                </h4>
-                                                <div class="shortdes">
-                                                    {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($row, "description"), 180) !!}
-                                                </div>
-                                                <div class="b-view-event">
-                                                    <div class="l">
-                                                        <div class="info-add date">
-                                                            <span>{{ \App\Helpers\Helpers::calDate(strtotime($row->created_at)) }}</span>
-                                                        </div>
-                                                        <div class="info-add localtion">
-                                                            <a href="{{ $row->tai_link }}"
-                                                               target="_blank">{{ \App\Helpers\Helpers::lang($row, "tai") }}</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="r">
-                                                        <div class="detail-viewmore">
-                                                            <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
-                                                               title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
-                                                                {{ \App\Helpers\Helpers::langDefine('Xem thêm') }}
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                @endif
-                            @endforeach
-                        </ul>
-                        <div style="clear: both;"></div>
-                        <div class="wrap-loading" style="display: none;">
-                            <img src="{{ asset('web/images/loading.gif') }}" width="65"/>
+                                            </li>
+                                        @endif
+                                    @endif
+                                @endforeach
+                            </ul>
+                            <div style="clear: both;"></div>
+                            <div class="wrap-loading" style="display: none;">
+                                <img src="{{ asset('web/images/loading.gif') }}" width="65"/>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </section>
     </section>
 @endsection
 @section('scripts')
     <script type="text/javascript">
+        $('.ami-new-click').click(function () {
+            var id = this.getAttribute("data-id");
+            $('.ami-new-click').removeClass('active');
+            $(this).addClass('active');
+            $('.ami-new').hide();
+            $('.ami-new-' + id).show();
+        });
+
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }

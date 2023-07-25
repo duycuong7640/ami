@@ -37,32 +37,32 @@
                                 <li>
                                     <a href="{{ route('client.category.type.index', ['slug' => $data['category']->slug, 'type' => 'pb']) }}"
                                        title=""
-                                       class="{{ (!request()->type || request()->type == 'pb') ? 'active' : '' }}">Phổ
-                                        biến</a>
+                                       class="{{ (!request()->type || request()->type == 'pb') ? 'active' : '' }}">
+                                        {{ \App\Helpers\Helpers::langDefine('Phổ biến') }}</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('client.category.type.index', ['slug' => $data['category']->slug, 'type' => 'bc']) }}"
                                        title=""
-                                       class="{{ (request()->type && request()->type == 'bc') ? 'active' : '' }}">Bán
-                                        chạy</a>
+                                       class="{{ (request()->type && request()->type == 'bc') ? 'active' : '' }}">
+                                        {{ \App\Helpers\Helpers::langDefine('Bán chạy') }}</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('client.category.type.index', ['slug' => $data['category']->slug, 'type' => 'hm']) }}"
                                        title=""
-                                       class="{{ (request()->type && request()->type == 'hm') ? 'active' : '' }}">Hàng
-                                        mới</a>
+                                       class="{{ (request()->type && request()->type == 'hm') ? 'active' : '' }}">
+                                        {{ \App\Helpers\Helpers::langDefine('Hàng mới') }}</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('client.category.type.index', ['slug' => $data['category']->slug, 'type' => 'pasc']) }}"
                                        title=""
-                                       class="{{ (request()->type && request()->type == 'pasc') ? 'active' : '' }}">Giá
-                                        từ thấp đến cao</a>
+                                       class="{{ (request()->type && request()->type == 'pasc') ? 'active' : '' }}">
+                                        {{ \App\Helpers\Helpers::langDefine('Giá từ thấp đến cao') }}</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('client.category.type.index', ['slug' => $data['category']->slug, 'type' => 'pdesc']) }}"
                                        title=""
-                                       class="{{ (request()->type && request()->type == 'pdesc') ? 'active' : '' }}">Giá
-                                        từ cao đến thấp</a>
+                                       class="{{ (request()->type && request()->type == 'pdesc') ? 'active' : '' }}">
+                                        {{ \App\Helpers\Helpers::langDefine('Giá từ cao đến thấp') }}</a>
                                 </li>
                             </ul>
                         </div>
