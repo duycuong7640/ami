@@ -127,6 +127,14 @@ Route::prefix($route)->group(function() {
     //feed product
     Route::get('/product-feed', 'ProductsController@feed');
 
+    // test Stripe
+    Route::get('/test-stripe', 'HomeController@testStripe');
+    Route::post('/test-stripe', 'HomeController@testStripe');
+
+    Route::get('/test-stripe2', 'HomeController@testStripe');
+    Route::post('/test-stripe2', 'HomeController@testStripe');
+
+
     //base
     Route::get('/', 'HomeController@index')->name('client.home');
     Route::get('/gia-tot-moi-ngay', 'ProductsController@giatotmoingay')->name('client.product.giatot');

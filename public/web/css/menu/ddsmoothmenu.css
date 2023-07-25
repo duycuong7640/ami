@@ -21,14 +21,14 @@
     display: block;
     padding: 8px 30px;
     /*border-right: 1px solid #fff;*/
-    color: #81818D;
+    color: #1D3C6E;
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
     font-family: "BarlowCondensed-Bold";
 }
 .ddsmoothmenu ul li a span{display: none !important;}
-.ddsmoothmenu ul li:last-child a{border-right: 0; padding-right: 0;}
+.ddsmoothmenu ul li:last-child a{border-right: 0; padding-right: 0 !important;}
 .ddsmoothmenu ul li ul li a{border-right: 0; padding-right: 8px !important;}
 
 * html .ddsmoothmenu ul li a { /*IE6 hack to get sub menu links to behave correctly*/
@@ -36,7 +36,7 @@
 }
 
 .ddsmoothmenu ul li a:link, .ddsmoothmenu ul li a:visited {
-    color: #81818D;
+    color: #1D3C6E;
 }
 
 .ddsmoothmenu ul li a.selected { /*CSS class that's dynamically added to the currently active menu items' LI A element*/
@@ -45,6 +45,7 @@
 
 .ddsmoothmenu ul li a:hover {
     color: #000;
+    text-decoration: underline;
 }
 
 /* sub menus */

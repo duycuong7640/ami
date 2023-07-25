@@ -10,8 +10,8 @@ use Illuminate\Support\Str;
 class CategoryService
 {
     private $categoryRepository;
-    const TYPE = ['new', 'product', 'new_location', 'new_about_ami', 'new_manager_ami', 'new_distributor', 'link'];
-    const TYPE_TEXT = ['new' => 'Tin tức', 'product' => 'Sản phẩm', 'new_location' => 'Trụ sở ami', 'new_about_ami' => 'Về Ami', 'new_manager_ami' => 'Lãnh đạo Ami', 'new_distributor' => 'Nhà phân phối', 'link' => 'Liên kết'];
+    const TYPE = ['new', 'product', 'new_location', 'new_about_ami', 'new_manager_ami', 'new_distributor', 'link', 'new_event'];
+    const TYPE_TEXT = ['new' => 'Tin tức', 'product' => 'Sản phẩm', 'new_location' => 'Trụ sở ami', 'new_about_ami' => 'Về Ami', 'new_manager_ami' => 'Lãnh đạo Ami', 'new_distributor' => 'Nhà phân phối', 'link' => 'Liên kết', 'new_event' => 'Tin tức sự kiện'];
 
     public function __construct(CategoryRepositoryInterface $categoryRepository)
     {

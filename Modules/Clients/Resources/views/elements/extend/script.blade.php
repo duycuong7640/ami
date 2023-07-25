@@ -1,5 +1,6 @@
 <script type="text/javascript" src="{{ asset('/web/js/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/web/js/bootstrap/bootstrap.min.js') }}" async></script>
+<script type="text/javascript" src="{{ asset('/web/js/bootstrap/bootstrap.bundle.js') }}" async></script>
 <script type="text/javascript" src="{{ asset('/web/js/menu/ddsmoothmenu.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/web/js/app.js') }}" async></script>
 <script type="text/javascript" src="{{ asset('/web/wow/js/wow.min.js') }}"></script>
@@ -12,6 +13,13 @@
 
     ddsmoothmenu.init({
         mainmenuid: "smoothmenu1",
+        orientation: 'h',
+        classname: 'ddsmoothmenu',
+        contentsource: "markup"
+    });
+
+    ddsmoothmenu.init({
+        mainmenuid: "smoothmenu1_h2",
         orientation: 'h',
         classname: 'ddsmoothmenu',
         contentsource: "markup"
@@ -36,6 +44,19 @@
             }
         }
     });
+
+    $(document).scroll(function(){
+        var curPos = $(document).scrollTop();
+        if(curPos >= 100) {
+            $('.wrap-mn').addClass('shadow1');
+        } else {
+            $('.wrap-mn').removeClass('shadow1');
+        }
+    });
+    // $('.scrollup').click(function(){
+    //     $("html, body").animate({ scrollTop: 0 }, 600);
+    //     return false;
+    // });
 </script>
 @if(!empty($mobile) && !$mobile)
     <script type="text/javascript" src="{{ asset('/web/js/menu_mobile.js') }}" async></script>

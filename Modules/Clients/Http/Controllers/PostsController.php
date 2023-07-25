@@ -112,11 +112,17 @@ class PostsController extends Controller
             if (empty($data['detail']->id)) return false;
             $this->setCommon();
             $data['common'] = Helpers::metaHead($data['detail']);
+            $data['truso'] = $this->clientCategoryService->findById(4);
             $data['cate_parent'] = !empty($data['detail']->category_parent_id) ? $this->clientCategoryService->findById($data['detail']->category_parent_id) : [];
             $data['adv1'] = $this->clientAdvService->findAdv1();
             $data['adv2'] = $this->clientAdvService->findAdv2();
-            $data['related'] = $this->clientPostService->getListRelated(['category_id' => $data['detail']->category_id, 'id' => $data['detail']->id]);
+
             $data['newpost'] = $this->clientPostService->getListByCate(['cate_multi' => $this->clientCategoryService->multiCate(3), 'limit' => 5]);
+            if($data['detail']->type == 'new_event'){
+                $data['related'] = $this->clientPostService->getListRelatedEvent(['category_id' => $data['detail']->category_id, 'id' => $data['detail']->id]);
+                return view('clients::posts.event.show', compact('data'));
+            }
+            $data['related'] = $this->clientPostService->getListRelated(['category_id' => $data['detail']->category_id, 'id' => $data['detail']->id]);
             return view('clients::posts.show', compact('data'));
         } catch (\Exception $e) {
             if (empty($e->getMessage())) abort(404); else abort('500');

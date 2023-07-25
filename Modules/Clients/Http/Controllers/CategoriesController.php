@@ -2,6 +2,7 @@
 
 namespace Modules\Clients\Http\Controllers;
 
+use App\Model\Category;
 use App\Service\Cache\CategoryCacheService;
 use App\Service\Clients\AdvertisementService;
 use App\Service\Clients\ClientCategoryService;
@@ -111,6 +112,13 @@ class CategoriesController extends Controller
             if (empty($data['category']->id)) return false;
             $this->setCommon();
             $data['common'] = Helpers::metaHead($data['category']);
+            $data['truso'] = $this->clientCategoryService->findById(4);
+            $cates = Category::all();
+            $arr = [];
+            foreach ($cates as $r){
+                $arr[$r->id] = $r;
+            }
+            $data['cates'] = $arr;
 
             // new_about_ami
             switch ($data["category"]->type) {
@@ -118,6 +126,10 @@ class CategoriesController extends Controller
                     $data['fixone'] = $this->clientAdvService->findFixOne();
                     $data['fixtwo'] = $this->clientAdvService->findFixTwo();
                     $data['list'] = $this->clientPostService->getListByCateAmi(['cate_multi' => [$data['category']->id], 'limit' => 100]);
+
+                    $data['newfix'] = $this->clientCategoryService->findById(14);
+                    $data['newfix_list'] = $this->clientPostService->getListByCategoryNotPaginate(['cate_multi' => $this->clientCategoryService->multiCate(14), 'limit' => 6]);
+
                     return view('clients::posts.ami.about', compact('data'));
                 case 'new_distributor':
                     $data['list'] = $this->clientPostService->getListByCateAmi(['cate_multi' => [$data['category']->id], 'limit' => 100]);
@@ -133,6 +145,14 @@ class CategoriesController extends Controller
                         return view('clients::posts.index_category', compact('data'));
                     } else {
                         return view('clients::posts.index', compact('data'));
+                    }
+                case 'new_event':
+                    $data['cate'] = $this->clientCategoryService->findListParentId($data['category']->id);
+                    $data['newpost'] = $this->clientPostService->getListByCateEvent(['cate_multi' => $this->clientCategoryService->multiCate($data['category']->id), 'limit' => 500]);
+                    if (count($data['cate']) > 0) {
+                        return view('clients::posts.event.index_category', compact('data'));
+                    } else {
+                        return view('clients::posts.event.index', compact('data'));
                     }
                 case 'product':
                     $data['pro_viewed'] = !empty($_SESSION['PRO_VIEWED']) ? $this->clientProductService->findViewed($_SESSION['PRO_VIEWED']) : [];

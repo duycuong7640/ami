@@ -169,21 +169,23 @@ class ClientCategoryService
                 $trees .= '<ul>';
             }
             foreach ($parmenu as $field) {
-                if ($parentid != null) {
-                    $trees .= '<li><a href="' . asset($route . $field['slug']) . '" title="' . Helpers::langArr($field, "title") . '">' . Helpers::langArr($field, "title") . '</a>';
-                    $trees = $this->multiMenu($_data, $field['id'], $trees);
-                    $trees .= '</li>';
-                } else {
+                if($field['type'] != 'new_location') {
+                    if ($parentid != null) {
+                        $trees .= '<li><a href="' . asset($route . $field['slug']) . '" title="' . Helpers::langArr($field, "title") . '">' . Helpers::langArr($field, "title") . '</a>';
+                        $trees = $this->multiMenu($_data, $field['id'], $trees);
+                        $trees .= '</li>';
+                    } else {
 //                    if ($field['id'] == 1) {
 //                        $trees .= '<li><a href="' . route('client.home') . '" title="' . Helpers::langDefine("Home") . '">' . Helpers::langDefine("Home") . '</a>';
 //                    } else
-                    if ($field['type'] == 'link') {
-                        $trees .= '<li><a href="' . $field['url'] . '" target="_blank" title="' . Helpers::langArr($field, "title") . '">' . Helpers::langArr($field, "title") . '</a>';
-                    } else {
-                        $trees .= '<li><a href="' . asset($route . $field['slug']) . '" title="' . Helpers::langArr($field, "title") . '">' . Helpers::langArr($field, "title") . '</a>';
+                        if ($field['type'] == 'link') {
+                            $trees .= '<li><a href="' . $field['url'] . '" target="_blank" title="' . Helpers::langArr($field, "title") . '">' . Helpers::langArr($field, "title") . '</a>';
+                        } else {
+                            $trees .= '<li><a href="' . asset($route . $field['slug']) . '" title="' . Helpers::langArr($field, "title") . '">' . Helpers::langArr($field, "title") . '</a>';
+                        }
+                        $trees = $this->multiMenu($_data, $field['id'], $trees);
+                        $trees .= '</li>';
                     }
-                    $trees = $this->multiMenu($_data, $field['id'], $trees);
-                    $trees .= '</li>';
                 }
             }
             $trees .= '</ul>';

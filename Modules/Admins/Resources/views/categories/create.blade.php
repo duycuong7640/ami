@@ -88,6 +88,27 @@
                                         @endforeach
                                     </select>
                                 </div>
+{{--                                <div class="form-group">--}}
+{{--                                    <label>Lọc thời gian</label>--}}
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-sm-2">--}}
+{{--                                            <div class="form-check">--}}
+{{--                                                <label class="form-check-label">--}}
+{{--                                                    <input type="radio" class="form-check-input" name="st" value="1"--}}
+{{--                                                           >--}}
+{{--                                                    @lang('admins::layer.status.active')--}}
+{{--                                                </label>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="form-check">--}}
+{{--                                                <label class="form-check-label">--}}
+{{--                                                    <input type="radio" class="form-check-input" name="st"--}}
+{{--                                                           value="0" checked>--}}
+{{--                                                    @lang('admins::layer.status.no_active')--}}
+{{--                                                </label>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                                 <div class="form-group">
                                     <label>Thumbnail</label>
                                     <div class="row">

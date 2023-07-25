@@ -39,6 +39,13 @@
                                 <input type="text" name="password" class="form-control" placeholder=""/>
                             </div>
                             <div class="form-group">
+                                <label>Quyền</label>
+                                <select class="form-control" name="role">
+                                    <option value="admin">admin</option>
+                                    <option value="editor">Editor</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label>Trạng thái</label>
                                 <div class="row">
                                     <div class="col-sm-2">

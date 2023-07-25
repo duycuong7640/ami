@@ -15,7 +15,7 @@
                     </div>
                     <div class="wrapper ml-md-auto d-flex flex-column flex-md-row kanban-toolbar ml-n2 ml-md-0 mt-4 mt-md-0">
                         <div class="d-flex mt-4 mt-md-0">
-                            <a href="{{ route('admin.fixone.create') }}">
+                            <a href="{{ route('admin.logo.create') }}">
                                 <button type="button" class="btn btn-success">
                                     @lang('admins::layer.button.add')
                                 </button>
@@ -64,13 +64,13 @@
                                         <td>{{ \Helpers::formatDate($row->updated_at) }}</td>
                                         <td>{{ $row->id }}</td>
                                         <td>
-                                            <a class="icon-form" title="edit" href="{{ route('admin.fixone.edit', ['id' => $row->id, 'page' => $data['list']->currentPage()]) }}">
+                                            <a class="icon-form" title="edit" href="{{ route('admin.logo.edit', ['id' => $row->id, 'page' => $data['list']->currentPage()]) }}">
                                                 <i class="icon-note"></i>
                                             </a>
-                                            <a class="icon-form status active" href="{{ route('admin.fixone.status', ['id' => $row->id, 'status' => (($row->status == 1) ? 0 : 1)]) }}">
+                                            <a class="icon-form status active" href="{{ route('admin.logo.status', ['id' => $row->id, 'status' => (($row->status == 1) ? 0 : 1)]) }}">
                                                 {!! (($row->status == 1) ? '<i class="icon-check"></i>' : '<i class="icon-close"></i>') !!}
                                             </a>
-                                            <a class="icon-form" href="javascript:confirmDelete('{{ route('admin.fixone.destroy', ['id' => $row->id]) }}','@lang('admins::layer.notify.confirm.delete')')">
+                                            <a class="icon-form" href="javascript:confirmDelete('{{ route('admin.logo.destroy', ['id' => $row->id]) }}','@lang('admins::layer.notify.confirm.delete')')">
                                                 <i class="icon-trash"></i>
                                             </a>
                                         </td>

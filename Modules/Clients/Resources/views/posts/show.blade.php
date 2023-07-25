@@ -73,40 +73,6 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="wrap-related">
-                        <label>{{ \App\Helpers\Helpers::langDefine("Related news") }}</label>
-                        @if(count($data['related']) > 0)
-                            <div class="wrap-new-related">
-                                <div class="wnrr-list">
-                                    <ul>
-                                        @foreach($data['related'] as $k=>$row)
-                                            <li>
-                                                <div class="item">
-                                                    <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
-                                                       title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
-                                                        <img src="{{ \App\Helpers\Helpers::renderThumb('/storage/photos/1.png', 'new_list') }}"
-                                                             title="{{ \App\Helpers\Helpers::lang($row, "title") }}"
-                                                             alt="{{ \App\Helpers\Helpers::lang($row, "title") }}"/>
-                                                    </a>
-                                                    <div class="content-data">
-                                                        <h4>
-                                                            <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
-                                                               title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
-                                                                {{ \App\Helpers\Helpers::lang($row, "title") }}
-                                                            </a>
-                                                        </h4>
-                                                        <div class="shortdes">
-                                                            {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($row, "description"), 180) !!}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-                        @endif
-                    </div>
                 </div>
                 <div class="show-right">
                     @foreach($data['adv1'] as $row)
@@ -126,7 +92,7 @@
                                         <div class="item">
                                             <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}"
                                                title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
-                                                <img src="{{ \App\Helpers\Helpers::renderThumb('/storage/photos/1.png', 'new_list') }}"
+                                                <img src="{{ \App\Helpers\Helpers::renderThumb($row->thumbnail, 'new_list') }}"
                                                      title="{{ \App\Helpers\Helpers::lang($row, "title") }}"
                                                      alt="{{ \App\Helpers\Helpers::lang($row, "title") }}"/>
                                             </a>
@@ -155,5 +121,170 @@
                 </div>
             </div>
         </div>
+        @if(count($data['related']) > 0)
+            <div class="wrap-related wrap-related2">
+                <div class="main-width">
+
+                    @php
+                        $slide_max = ceil(count($data['related']) / 5);
+                        $slide_max_data = [];
+                        $dem = 0;
+                        $k = 0;
+                        foreach ($data['related'] as $row){
+                            $slide_max_data[$k][] = $row;
+                            $dem ++;
+                            if($dem == 3){
+                                $dem = 0;
+                                $k ++;
+                            }
+                        }
+                        $slide_min = ceil(count($data['related']) / 2);
+                        $slide_min_data = [];
+                        $dem = 0;
+                        $k = 0;
+                        foreach ($data['related'] as $row){
+                            $slide_min_data[$k][] = $row;
+                            $dem ++;
+                            if($dem == 2){
+                                $dem = 0;
+                                $k ++;
+                            }
+                        }
+                    @endphp
+                    <section class="wrap-is-viewed slide-pro-viewed">
+                        <div class="main-width">
+                            <div class="wrap-list-viewed">
+                                <div class="title e-fix">
+                                    {{ \App\Helpers\Helpers::langDefine('Related news') }}
+                                    <div class="line-t"></div>
+                                </div>
+                                <div class="wrap-slide">
+                                    <div id="carouselExampleIndicators" class="carousel slide"
+                                         data-ride="carousel">
+                                        {{--                                <ol class="carousel-indicators">--}}
+                                        {{--                                    @for($i = 0; $i < $slide_max; $i ++)--}}
+                                        {{--                                        <li data-target="#carouselExampleIndicators" data-slide-to="{{ $i }}"--}}
+                                        {{--                                            class="{{ !$i ? 'active' : '' }}"></li>--}}
+                                        {{--                                    @endfor--}}
+                                        {{--                                </ol>--}}
+                                        <div class="carousel-inner">
+                                            @for($i = 0; $i < $slide_max; $i ++)
+                                                <div class="carousel-item {{ !$i ? 'active' : '' }}">
+                                                    <div class="wrap-news">
+                                                        <div class="news-list">
+                                                            <ul>
+                                                                @foreach($slide_max_data[$i] as $k=>$row)
+                                                                    <li>
+                                                                        <div class="item">
+                                                                            <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}" title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
+                                                                                <img src="{{ \App\Helpers\Helpers::renderThumb($row->thumbnail, 'new_list') }}"
+                                                                                     title="{{ \App\Helpers\Helpers::lang($row, "title") }}" alt="{{ \App\Helpers\Helpers::lang($row, "title") }}"/>
+                                                                            </a>
+                                                                            <div class="content-data content-data-new">
+                                                                                <h4>
+                                                                                    <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}" title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
+                                                                                        {{ \App\Helpers\Helpers::lang($row, "title") }}
+                                                                                    </a>
+                                                                                </h4>
+                                                                                <div class="shortdes">
+                                                                                    {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($row, "description"), 180) !!}
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endfor
+                                        </div>
+                                        <a class="carousel-control-prev" href="#carouselExampleIndicators"
+                                           role="button"
+                                           data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleIndicators"
+                                           role="button"
+                                           data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="wrap-is-viewed slide-pro-viewed-mb" style="display: none;">
+                        <div class="main-width">
+                            <div class="wrap-list-viewed">
+                                <div class="title e-fix">
+                                    {{ \App\Helpers\Helpers::langDefine('Related news') }}
+                                    <div class="line-t"></div>
+                                </div>
+                                <div class="wrap-slide">
+                                    <div id="carouselExampleIndicators_mb" class="carousel slide"
+                                         data-ride="carousel">
+                                        {{--                                <ol class="carousel-indicators">--}}
+                                        {{--                                    @for($i = 0; $i < $slide_max; $i ++)--}}
+                                        {{--                                        <li data-target="#carouselExampleIndicators" data-slide-to="{{ $i }}"--}}
+                                        {{--                                            class="{{ !$i ? 'active' : '' }}"></li>--}}
+                                        {{--                                    @endfor--}}
+                                        {{--                                </ol>--}}
+                                        <div class="carousel-inner">
+                                            @for($i = 0; $i < $slide_min; $i ++)
+                                                <div class="carousel-item {{ !$i ? 'active' : '' }}">
+                                                    <div class="wrap-news">
+                                                        <div class="news-list">
+                                                            <ul>
+                                                                @foreach($slide_min_data[$i] as $k=>$row)
+                                                                    <li>
+                                                                        <div class="item">
+                                                                            <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}" title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
+                                                                                <img src="{{ \App\Helpers\Helpers::renderThumb($row->thumbnail, 'new_list') }}"
+                                                                                     title="{{ \App\Helpers\Helpers::lang($row, "title") }}" alt="{{ \App\Helpers\Helpers::lang($row, "title") }}"/>
+                                                                            </a>
+                                                                            <div class="content-data content-data-new">
+                                                                                <h4>
+                                                                                    <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}" title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
+                                                                                        {{ \App\Helpers\Helpers::lang($row, "title") }}
+                                                                                    </a>
+                                                                                </h4>
+                                                                                <div class="shortdes">
+                                                                                    {!! \App\Helpers\Helpers::shortDesc(\App\Helpers\Helpers::lang($row, "description"), 180) !!}
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endfor
+                                        </div>
+                                        <a class="carousel-control-prev" href="#carouselExampleIndicators_mb"
+                                           role="button"
+                                           data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleIndicators_mb"
+                                           role="button"
+                                           data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+            </div>
+        @endif
     </section>
 @endsection

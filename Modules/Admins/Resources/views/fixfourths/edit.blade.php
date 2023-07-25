@@ -44,7 +44,7 @@
                                     <input type="text" name="title" value="{{ $data['detail']->title }}"
                                            class="form-control" placeholder=""/>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" style="display: none;">
                                     <label>Tiêu đề 1 url</label>
                                     <input type="text" name="url" value="{{ $data['detail']->url }}"
                                            class="form-control" placeholder=""/>

@@ -12,20 +12,41 @@
         </section>
         <section class="wrap-new-category">
             <div class="main-width">
-                <div class="cate">
-                    <label class="title">{{ \App\Helpers\Helpers::langDefine('TIN TỨC CẬP NHẬT') }}</label>
-                </div>
+{{--                @if($data['category']->st)--}}
+{{--                    <div class="fillter-bc">--}}
+{{--                        <form method="get">--}}
+{{--                            <div class="fl-ct">--}}
+{{--                                Thời gian từ--}}
+{{--                                <select name="start" onchange="this.form.submit()">--}}
+{{--                                    @for($i=2000; $i<=2100; $i++)--}}
+{{--                                        <option value="{{$i}}">{{$i}}</option>--}}
+{{--                                    @endfor--}}
+{{--                                </select>--}}
+{{--                                Đến--}}
+{{--                                <select name="end" onchange="this.form.submit()">--}}
+{{--                                    <option value=""></option>--}}
+{{--                                    @for($i=2000; $i<=2100; $i++)--}}
+{{--                                        <option value="{{$i}}">{{$i}}</option>--}}
+{{--                                    @endfor--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
+{{--                @endif--}}
+{{--                <div class="cate">--}}
+{{--                    <label class="title">{{ \App\Helpers\Helpers::langDefine('TIN TỨC CẬP NHẬT') }}</label>--}}
+{{--                </div>--}}
                 <div class="wrap-news">
                     <div class="news-list">
                         <ul>
                             @foreach($data['newpost'] as $k=>$row)
                                     <li style="{{ $k >= 6 ? 'display: none' : '' }}">
-                                        <div class="item">
+                                        <div class="item bg-it">
                                             <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}" title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
-                                                <img src="{{ \App\Helpers\Helpers::renderThumb('/storage/photos/1.png', 'new_list') }}"
+                                                <img src="{{ \App\Helpers\Helpers::renderThumb($row->thumbnail, 'new_list') }}"
                                                      title="{{ \App\Helpers\Helpers::lang($row, "title") }}" alt="{{ \App\Helpers\Helpers::lang($row, "title") }}"/>
                                             </a>
-                                            <div class="content-data">
+                                            <div class="content-data content-data-new">
                                                 <h4>
                                                     <a href="{{ route('client.post.show', ['slug' => $row->slug]) }}" title="{{ \App\Helpers\Helpers::lang($row, "title") }}">
                                                         {{ \App\Helpers\Helpers::lang($row, "title") }}

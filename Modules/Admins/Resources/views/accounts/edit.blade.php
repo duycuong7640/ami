@@ -38,6 +38,10 @@
                                 <label>Mật khẩu</label>
                                 <input type="text" name="password" value="" class="form-control" placeholder=""/>
                             </div>
+                            <select class="form-control" name="role">
+                                <option value="admin" @if($data['detail']->role == 'admin') selected @endif>Admin</option>
+                                <option value="editor" @if($data['detail']->role == 'editor') selected @endif>Editor</option>
+                            </select>
                             <div class="form-group">
                                 <label>Trạng thái</label>
                                 <div class="row">

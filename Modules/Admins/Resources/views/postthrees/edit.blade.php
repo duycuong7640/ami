@@ -142,18 +142,18 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Tiêu đề</label>
-                                    <input type="text" name="title_es" value="{{ $data['detail']->title_es }}"
+                                    <input type="text" name="title_en" value="{{ $data['detail']->title_en }}"
                                            class="form-control" placeholder=""/>
                                 </div>
                                 <div class="form-group">
                                     <label>Địa chỉ</label>
                                     <textarea class="form-control"
-                                              name="description_es" rows="10">{{ $data['detail']->description_es }}</textarea>
+                                              name="description_en" rows="10">{{ $data['detail']->description_en }}</textarea>
                                 </div>
                                 <div class="form-group" style="display: none;">
                                     <label>Nội dung</label>
                                     <textarea class="form-control"
-                                              name="content_es" rows="10">{{ str_replace('\"','"', $data['detail']->content_es) }}</textarea>
+                                              name="content_en" rows="10">{{ str_replace('\"','"', $data['detail']->content_en) }}</textarea>
                                 </div>
                             </div>
                         </div>

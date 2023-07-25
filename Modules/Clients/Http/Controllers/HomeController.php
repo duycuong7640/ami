@@ -11,6 +11,7 @@ use App\Service\Clients\ClientProductService;
 use App\Service\Clients\SettingService;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 
@@ -102,16 +103,24 @@ class HomeController extends Controller
             $data['common'] = Helpers::metaHead($data['setting']);
             $data['drag_home'] = $this->clientAdvService->findFourth();
             $data['category_products'] = $this->clientCategoryService->findListParentId(2);
-            $data['home_new'] = $this->clientCategoryService->findById(15);
-            $data['home_new_cate'] = $this->clientCategoryService->findListParentId(15);
+            $data['home_new'] = $this->clientCategoryService->findById(3);
+            $data['truso'] = $this->clientCategoryService->findById(4);
+            $data['ttsk'] = $this->clientCategoryService->findById(15);
+            $data['ttsk_list'] = $this->clientPostService->getListByCategoryNotPaginateEvent(['cate_multi' => $this->clientCategoryService->multiCate(15), 'limit' => 30]);
+            $data['home_new_cate'] = $this->clientCategoryService->findListParentId(3);
             $data["home_new_cate_post"] = [];
-            foreach ($data['home_new_cate'] as $row){
-                $data["home_new_cate_post"][$row->id] = $this->clientPostService->getListByCategoryNotPaginate(['cate_multi' => $this->clientCategoryService->multiCate($row->id), 'limit' => 4]);
+            foreach ($data['home_new_cate'] as $row) {
+                $data["home_new_cate_post"][$row->id] = $this->clientPostService->getListByCategoryNotPaginate(['cate_multi' => $this->clientCategoryService->multiCate($row->id), 'limit' => 6]);
             }
             return view('clients::home.index', compact('data'));
         } catch (\Exception $e) {
             if (empty($e->getMessage())) abort(404); else abort('500');
         }
+    }
+
+    public function testStripe(){
+        Log::info('Log:' . date('d/m/Y') . '--' . @file_get_contents('php://input'));
+        die;
     }
 
     /**

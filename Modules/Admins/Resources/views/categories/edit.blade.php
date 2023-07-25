@@ -47,7 +47,7 @@
 {{--                                </button>--}}
                             </div>
 
-                            <div id="tab_en" class="tabHide">
+                            <div id="tab_vn" class="tabHide">
                                 <div class="form-group">
                                     <label>VN</label>
                                 </div>
@@ -92,6 +92,27 @@
                                         @endforeach
                                     </select>
                                 </div>
+{{--                                <div class="form-group">--}}
+{{--                                    <label>Lọc thời gian</label>--}}
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-sm-2">--}}
+{{--                                            <div class="form-check">--}}
+{{--                                                <label class="form-check-label">--}}
+{{--                                                    <input type="radio" class="form-check-input" name="st" value="1"  {{ ($data['detail']->st == 1) ? 'checked' : '' }}--}}
+{{--                                                    >--}}
+{{--                                                    @lang('admins::layer.status.active')--}}
+{{--                                                </label>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="form-check">--}}
+{{--                                                <label class="form-check-label">--}}
+{{--                                                    <input type="radio" class="form-check-input" name="st"--}}
+{{--                                                           value="0"  {{ ($data['detail']->st == 0) ? 'checked' : '' }}>--}}
+{{--                                                    @lang('admins::layer.status.no_active')--}}
+{{--                                                </label>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                                 <div class="form-group">
                                     <label>Thumbnail</label>
                                     <div class="row">

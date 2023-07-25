@@ -23,7 +23,7 @@
                 <div class="wrap-list-distributors">
                     <ul>
                         @foreach($data['list'] as $k=>$row)
-                            <li>
+                            <li style="{{ $k >= 9 ? 'display: none' : '' }}">
                                 <div class="item">
                                     <div class="content-data">
                                         <a href="" title="">
@@ -37,8 +37,44 @@
                             </li>
                         @endforeach
                     </ul>
+                    <div style="clear: both;"></div>
+                    <div class="wrap-loading" style="display: none;">
+                        <img src="{{ asset('web/images/loading.gif') }}" width="65"/>
+                    </div>
                 </div>
             </div>
         </section>
     </section>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        $(document).scroll(function () {
+            loading();
+        });
+
+        async function loading() {
+            $('.wrap-loading').show();
+            await sleep(2000);
+            var proH = $('.wrap-list-distributors').innerHeight();
+            var curPos = $(document).scrollTop();
+
+            var listLi = document.querySelectorAll('.wrap-list-distributors ul li')
+
+            var j = 0;
+            if (curPos >= proH - 400) {
+                for (var i = 0; i < listLi.length; i++) {
+                    if (listLi[i].getAttribute('style') === 'display: none') {
+                        listLi[i].removeAttribute('style');
+                        j ++;
+                        if(j >= 12) break;
+                    }
+                }
+                $('.wrap-loading').hide();
+            }
+        }
+    </script>
 @endsection

@@ -6,7 +6,7 @@
 <footer id="footer">
     <div class="main-width">
         <div class="wrap-box">
-            <div class="box cal-b-ft">
+            <div class="boxft cal-b-ft">
                 <div class="cate-title">
                     Kết nối với Ami
                 </div>
@@ -40,7 +40,7 @@
                 @foreach($data_common['category_list']['arrList']['parent'] as $k=>$row)
                     @if(in_array($row['id'], ['1', '2', '3']))
 {{--                    @if($dem < 3)--}}
-                        <div class="box cal-b-ft">
+                        <div class="boxft cal-b-ft">
                             <div class="cate-title">
                                 <a href="{{ asset($row['slug']) }}"
                                    title="{{ \App\Helpers\Helpers::langArr($row, "title") }}">{{ \App\Helpers\Helpers::langArr($row, "title") }}</a>
@@ -62,7 +62,7 @@
                     @endif
                 @endforeach
             @endif
-            <div class="box cal-b-ft">
+            <div class="boxft cal-b-ft">
                 <div class="cate-title">
                     Liên hệ
                 </div>

@@ -33,25 +33,19 @@
         <li class="nav-item nav-category">
             <span class="nav-link">@lang('admins::layer.menu.parent.function')</span>
         </li>
-        <li class="nav-item {{ Request::routeIs('admin.category.*')? 'active' : '' }} {{ Request::routeIs('admin.post.*')? 'active' : '' }}  {{ Request::routeIs('admin.postthree.*')? 'active' : '' }} {{ Request::routeIs('admin.posttwo.*')? 'active' : '' }} {{ Request::routeIs('admin.product.*')? 'active' : '' }}">
+        <li class="nav-item {{ Request::routeIs('admin.post.*')? 'active' : '' }} {{ Request::routeIs('admin.pevent.*')? 'active' : '' }} {{ Request::routeIs('admin.postthree11.*')? 'active' : '' }} {{ Request::routeIs('admin.posttwo1.*')? 'active' : '' }} {{ Request::routeIs('admin.product.*')? 'active' : '' }}">
             <a class="nav-link" data-toggle="collapse" href="#basic-ui" aria-expanded="false"
                aria-controls="basic-ui">
                 <span class="menu-title">@lang('admins::layer.menu.parent.post')</span>
                 <i class="icon-layers menu-icon"></i>
             </a>
-            <div class="collapse {{ Request::routeIs('admin.category.*')? 'show' : '' }} {{ Request::routeIs('admin.post.*')? 'show' : '' }} {{ Request::routeIs('admin.postthree.*')? 'show' : '' }} {{ Request::routeIs('admin.posttwo.*')? 'show' : '' }} {{ Request::routeIs('admin.product.*')? 'show' : '' }} {{ Request::routeIs('admin.version.*')? 'show' : '' }}" id="basic-ui">
+            <div class="collapse {{ Request::routeIs('admin.post.*')? 'show' : '' }} {{ Request::routeIs('admin.pevent.*')? 'show' : '' }} {{ Request::routeIs('admin.postthree11.*')? 'show' : '' }} {{ Request::routeIs('admin.posttwo1.*')? 'show' : '' }} {{ Request::routeIs('admin.product.*')? 'show' : '' }} {{ Request::routeIs('admin.version.*')? 'show' : '' }}" id="basic-ui">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::routeIs('admin.category.*')? 'active' : '' }}" href="{{ route('admin.category.index') }}">@lang('admins::layer.menu.parent.post.category.title')</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link {{ Request::routeIs('admin.post.*')? 'active' : '' }}" href="{{ route('admin.post.index') }}">@lang('admins::layer.menu.parent.post.post.title')</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Request::routeIs('admin.posttwo.*')? 'active' : '' }}" href="{{ route('admin.posttwo.index') }}">Về ami</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::routeIs('admin.postthree.*')? 'active' : '' }}" href="{{ route('admin.postthree.index') }}">Trụ sở</a>
+                        <a class="nav-link {{ Request::routeIs('admin.pevent.*')? 'active' : '' }}" href="{{ route('admin.pevent.index') }}">Tin tức sự kiện</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ Request::routeIs('admin.product.*')? 'active' : '' }}" href="{{ route('admin.product.index') }}">@lang('admins::layer.menu.parent.product.product.title')</a>
@@ -62,14 +56,17 @@
                 </ul>
             </div>
         </li>
-        <li class="nav-item {{ Request::routeIs('admin.fixone.*')? 'active' : '' }} {{ Request::routeIs('admin.fixtwo.*')? 'active' : '' }} {{ Request::routeIs('admin.fixthree.*')? 'active' : '' }}">
+        <li class="nav-item {{ Request::routeIs('admin.category.*')? 'active' : '' }} {{ Request::routeIs('admin.fixone.*')? 'active' : '' }} {{ Request::routeIs('admin.fixtwo.*')? 'active' : '' }} {{ Request::routeIs('admin.fixthree.*')? 'active' : '' }} {{ Request::routeIs('admin.postthree.*')? 'active' : '' }}">
             <a class="nav-link" data-toggle="collapse" href="#basic-ui1" aria-expanded="false"
                aria-controls="basic-ui1">
-                <span class="menu-title">Ứng dụng</span>
+                <span class="menu-title">Nội dung web cố định</span>
                 <i class="icon-layers menu-icon"></i>
             </a>
-            <div class="collapse {{ Request::routeIs('admin.fixone.*')? 'show' : '' }} {{ Request::routeIs('admin.fixtwo.*')? 'show' : '' }}  {{ Request::routeIs('admin.fixthree.*')? 'show' : '' }} " id="basic-ui1">
+            <div class="collapse {{ Request::routeIs('admin.category.*')? 'show' : '' }} {{ Request::routeIs('admin.fixone.*')? 'show' : '' }} {{ Request::routeIs('admin.fixtwo.*')? 'show' : '' }}  {{ Request::routeIs('admin.fixthree.*')? 'show' : '' }}  {{ Request::routeIs('admin.postthree.*')? 'show' : '' }} " id="basic-ui1">
                 <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::routeIs('admin.category.*')? 'active' : '' }}" href="{{ route('admin.category.index') }}">@lang('admins::layer.menu.parent.post.category.title')</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link {{ Request::routeIs('admin.fixone.*')? 'active' : '' }}" href="{{ route('admin.fixone.index') }}">Giấc mơ sức sống việt</a>
                     </li>
@@ -79,9 +76,16 @@
                     <li class="nav-item">
                         <a class="nav-link {{ Request::routeIs('admin.fixthree.*')? 'active' : '' }}" href="{{ route('admin.fixthree.index') }}">Ban lãnh đạo</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::routeIs('admin.postthree.*')? 'active' : '' }}" href="{{ route('admin.postthree.index') }}">Trụ sở</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::routeIs('admin.posttwo.*')? 'active' : '' }}" href="{{ route('admin.posttwo.index') }}">Về ami</a>
+                    </li>
                 </ul>
             </div>
         </li>
+        @if($admin->role == 'admin')
         <li class="nav-item {{ Request::routeIs('admin.advertisement.*')? 'active' : '' }} {{ Request::routeIs('admin.advone.*')? 'active' : '' }}">
             <a class="nav-link" data-toggle="collapse" href="#basic-ui2" aria-expanded="false"
                aria-controls="basic-ui2">
@@ -99,6 +103,7 @@
                 </ul>
             </div>
         </li>
+        @endif
 {{--        <li class="nav-item {{ Request::routeIs('admin.crawler.*')? 'active' : '' }}">--}}
 {{--            <a class="nav-link" data-toggle="collapse" href="#basic-ui" aria-expanded="false"--}}
 {{--               aria-controls="basic-ui">--}}
@@ -131,24 +136,28 @@
 {{--                <i class="icon-doc menu-icon"></i>--}}
 {{--            </a>--}}
 {{--        </li>--}}
+        @if($admin->role == 'admin')
         <li class="nav-item {{ Request::routeIs('admin.logo.*')? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin.logo.index') }}">
                 <span class="menu-title">Logo</span>
                 <i class="icon-doc menu-icon"></i>
             </a>
         </li>
+        @endif
 {{--        <li class="nav-item {{ Request::routeIs('admin.slideshow.*')? 'active' : '' }}">--}}
 {{--            <a class="nav-link" href="{{ route('admin.slideshow.index') }}">--}}
 {{--                <span class="menu-title">Slide</span>--}}
 {{--                <i class="icon-doc menu-icon"></i>--}}
 {{--            </a>--}}
 {{--        </li>--}}
+        @if($admin->role == 'admin')
         <li class="nav-item {{ Request::routeIs('admin.fixfourth.*')? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin.fixfourth.index') }}">
                 <span class="menu-title">Drag home</span>
                 <i class="icon-doc menu-icon"></i>
             </a>
         </li>
+        @endif
 {{--        <li class="nav-item {{ Request::routeIs('admin.redirect.*')? 'active' : '' }}">--}}
 {{--            <a class="nav-link" href="{{ route('admin.redirect.index') }}">--}}
 {{--                <span class="menu-title">Redirect url</span>--}}
@@ -161,6 +170,7 @@
 {{--                <i class="mdi mdi-doc menu-icon"></i>--}}
 {{--            </a>--}}
 {{--        </li>--}}
+        @if($admin->role == 'admin')
         <li class="nav-item {{ Request::routeIs('admin.setting.*')? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin.setting.update',["id" => 1]) }}">
                 <span class="menu-title">Cấu hình website</span>
@@ -173,6 +183,7 @@
                 <i class="icon-bell menu-icon"></i>
             </a>
         </li>
+        @endif
 {{--        <li class="nav-item {{ Request::routeIs('admin.mailtemplate.*')? 'active' : '' }}">--}}
 {{--            <a class="nav-link" href="{{ route('admin.mailtemplate.index') }}">--}}
 {{--                <span class="menu-title">Mail template</span>--}}

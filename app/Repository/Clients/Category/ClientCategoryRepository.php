@@ -20,7 +20,7 @@ class ClientCategoryRepository implements ClientCategoryRepositoryInterface
 
     public function findListParentId($_id)
     {
-        return DB::table(self::TABLE_NAME)->select('id', 'title', 'title_en', 'slug', 'thumbnail', 'description', 'description_en', 'description2', 'description2_en')->where('parent_id', $_id)->where('status', 1)->get();
+        return DB::table(self::TABLE_NAME)->select('id', 'title', 'title_en', 'slug', 'thumbnail', 'description', 'description_en', 'description2', 'description2_en', 'st')->where('parent_id', $_id)->where('status', 1)->get();
     }
 
     public function getMenu()

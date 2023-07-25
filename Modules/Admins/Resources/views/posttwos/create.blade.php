@@ -133,15 +133,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Tiêu đề</label>
-                                    <input type="text" name="title_es" class="form-control" placeholder=""/>
+                                    <input type="text" name="title_en" class="form-control" placeholder=""/>
                                 </div>
                                 <div class="form-group">
                                     <label>Mô tả</label>
-                                    <textarea class="ckeditor-mini" name="description_es"></textarea>
+                                    <textarea class="ckeditor-mini" name="description_en"></textarea>
                                 </div>
                                 <div class="form-group" class="form-group" style="display: none;">
                                     <label>Nội dung</label>
-                                    <textarea class="ckeditor" name="content_es"></textarea>
+                                    <textarea class="ckeditor" name="content_en"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -180,16 +180,16 @@
                             </div>
                             <div class="form-group">
                                 <label>Title seo</label>
-                                <textarea type="text" name="title_seo_es" class="form-control"
+                                <textarea type="text" name="title_seo_en" class="form-control"
                                           placeholder=""></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Meta des</label>
-                                <textarea type="text" name="meta_des_es" class="form-control" placeholder=""></textarea>
+                                <textarea type="text" name="meta_des_en" class="form-control" placeholder=""></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Meta key</label>
-                                <textarea type="text" name="meta_key_es" class="form-control" placeholder=""></textarea>
+                                <textarea type="text" name="meta_key_en" class="form-control" placeholder=""></textarea>
                             </div>
                         </div>
                     </div>

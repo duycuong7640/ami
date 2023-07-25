@@ -6,6 +6,7 @@ use App\Helpers\Helpers;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 
 class adminAuthMiddleware
 {
@@ -25,6 +26,7 @@ class adminAuthMiddleware
         }
 
         if (Auth::guard(Helpers::renderGuard())->check()) {
+            View::share('admin', Auth::guard("admins")->user());
             return $next($request);
         }
         return redirect()->route('admin.login');

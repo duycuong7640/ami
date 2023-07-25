@@ -43,7 +43,7 @@
 
                             <div id="tab_vn" class="tabHide">
                                 <div class="form-group">
-                                    <label>EN</label>
+                                    <label>VN</label>
                                 </div>
                                 <div class="form-group">
                                     <label>Tiêu đề</label>
@@ -183,8 +183,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Tiêu đề</label>
-                                    <input type="text" name="title_es" class="form-control"
-                                           value="{{ $data['detail']->title_es }}" placeholder=""/>
+                                    <input type="text" name="title_en" class="form-control"
+                                           value="{{ $data['detail']->title_en }}" placeholder=""/>
                                 </div>
                                 <div class="form-group">
                                     <label>Mô tả top detail</label>
@@ -193,12 +193,12 @@
                                 <div class="form-group">
                                     <label>Mô tả</label>
                                     <textarea class="ckeditor-mini"
-                                              name="description_es">{{ $data['detail']->description_es }}</textarea>
+                                              name="description_en">{{ $data['detail']->description_en }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Nội dung</label>
                                     <textarea class="ckeditor"
-                                              name="content_es">{{ $data['detail']->content_es }}</textarea>
+                                              name="content_en">{{ $data['detail']->content_en }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -245,25 +245,25 @@
                                 <label>EN</label>
                             </div>
                             <div class="form-group">
-                                <label>Title seo <span id="title_seo_es_1"
-                                                       style="color: red;">{{ !empty($data['detail']->title_seo_es) ? "Ký tự: " . strlen($data['detail']->title_seo_es) : "" }}</span></label>
-                                <textarea type="text" name="title_seo_es" id="title_seo_es" onkeyup="countChar('title_seo_es');"
+                                <label>Title seo <span id="title_seo_en_1"
+                                                       style="color: red;">{{ !empty($data['detail']->title_seo_en) ? "Ký tự: " . strlen($data['detail']->title_seo_en) : "" }}</span></label>
+                                <textarea type="text" name="title_seo_en" id="title_seo_en" onkeyup="countChar('title_seo_en');"
                                           class="form-control"
-                                          placeholder="">{{ $data['detail']->title_seo_es }}</textarea>
+                                          placeholder="">{{ $data['detail']->title_seo_en }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label>Meta des <span id="meta_des_es_1"
-                                                      style="color: red;">{{ !empty($data['detail']->meta_des_es) ? "Ký tự: " . strlen($data['detail']->meta_des_es) : "" }}</span></label>
-                                <textarea type="text" name="meta_des_es" id="meta_des_es" onkeyup="countChar('meta_des_es');"
+                                <label>Meta des <span id="meta_des_en_1"
+                                                      style="color: red;">{{ !empty($data['detail']->meta_des_en) ? "Ký tự: " . strlen($data['detail']->meta_des_en) : "" }}</span></label>
+                                <textarea type="text" name="meta_des_en" id="meta_des_en" onkeyup="countChar('meta_des_en');"
                                           class="form-control"
-                                          placeholder="">{{ $data['detail']->meta_des_es }}</textarea>
+                                          placeholder="">{{ $data['detail']->meta_des_en }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label>Meta key <span id="meta_key_es_1"
-                                                      style="color: red;">{{ !empty($data['detail']->meta_key_es) ? "Ký tự: " . strlen($data['detail']->meta_key_es) : "" }}</span></label>
-                                <textarea type="text" name="meta_key_es" id="meta_key_es" onkeyup="countChar('meta_key_es');"
+                                <label>Meta key <span id="meta_key_en_1"
+                                                      style="color: red;">{{ !empty($data['detail']->meta_key_en) ? "Ký tự: " . strlen($data['detail']->meta_key_en) : "" }}</span></label>
+                                <textarea type="text" name="meta_key_en" id="meta_key_en" onkeyup="countChar('meta_key_en');"
                                           class="form-control"
-                                          placeholder="">{{ $data['detail']->meta_key_es }}</textarea>
+                                          placeholder="">{{ $data['detail']->meta_key_en }}</textarea>
                             </div>
                         </div>
                     </div>

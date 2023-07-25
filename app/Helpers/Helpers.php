@@ -89,25 +89,25 @@ class Helpers
                 "" => "KẾT NỐI",
                 $es => "CONNECT",
             ],
-            md5("Những con người phù hợp") => [
-                "" => "Những con người phù hợp",
-                $es => "The right people",
+            md5("b_1") => [
+                "" => "Kết nối các điểm chạm cùng mục tiêu, chung cách hành xử",
+                $es => "Connecting touch points with the same goal, the same behavior",
             ],
             md5("KIẾN TẠO") => [
                 "" => "KIẾN TẠO",
                 $es => "ASSIST",
             ],
-            md5("Một cộng đồng thịnh vượng và hạnh phúc") => [
-                "" => "Một cộng đồng thịnh vượng và hạnh phúc",
-                $es => "A prosperous and happy community",
+            md5("b_2") => [
+                "" => "Kiến tạo một cồng đồng Ami thành đạt toàn diện",
+                $es => "Building a successful Ami community",
             ],
             md5("LAN TỎA") => [
                 "" => "LAN TỎA",
                 $es => "SPREAD",
             ],
-            md5("lt") => [
-                "" => "Tư duy, văn hoá, lối sống 3G4T và chia sẻ cách để có cuộc sống thịnh vượng và hạnh phúc AMI",
-                $es => "3G4T thinking, culture, lifestyle and sharing how to have a prosperous and happy life AMI",
+            md5("b_3") => [
+                "" => "Lan toả công thức thành công, văn hoá 3G4T đến cộng đồng lớn",
+                $es => "Spread the success formula, 3G4T culture to the large community",
             ],
             md5("TỪNG BƯỚC BIẾN GIẤC MƠ THÀNH SỰ THẬT") => [
                 "" => "TỪNG BƯỚC BIẾN GIẤC MƠ THÀNH SỰ THẬT",
@@ -189,13 +189,121 @@ class Helpers
                 "" => "Mô tả sản phẩm",
                 $es => "Product Description",
             ],
-            md5("") => [
-                "" => "",
-                $es => "",
+            md5("Kinh doanh cùng ami") => [
+                "" => "Kinh doanh cùng ami",
+                $es => "Doing business with ami",
             ],
-            md5("") => [
-                "" => "",
-                $es => "",
+            md5("Thời gian từ") => [
+                "" => "Thời gian từ",
+                $es => "Time from",
+            ],
+            md5("Đến") => [
+                "" => "Đến",
+                $es => "To",
+            ],
+            md5("Sunday") => [
+                "" => "Chủ nhật",
+                $es => "Sunday",
+            ],
+            md5("Monday") => [
+                "" => "Thứ hai",
+                $es => "Monday",
+            ],
+            md5("Tuesday") => [
+                "" => "Thứ ba",
+                $es => "Tuesday",
+            ],
+            md5("Wednesday") => [
+                "" => "Thứ tư",
+                $es => "Wednesday",
+            ],
+            md5("Thursday") => [
+                "" => "Thứ năm",
+                $es => "Thursday",
+            ],
+            md5("Friday") => [
+                "" => "Thứ sáu",
+                $es => "Friday",
+            ],
+            md5("Saturday") => [
+                "" => "Thứ bẩy",
+                $es => "Saturday",
+            ],
+            md5("Diễn ra lúc") => [
+                "" => "Diễn ra lúc",
+                $es => "Time start",
+            ],
+            md5("Tại") => [
+                "" => "Tại",
+                $es => "Location",
+            ],
+            md5("NHÀ PHÂN PHỐI") => [
+                "" => "NHÀ PHÂN PHỐI",
+                $es => "DISTRIBUTOR",
+            ],
+            md5("TRONG NĂM 2023") => [
+                "" => "TRONG NĂM 2023",
+                $es => "IN 2023",
+            ],
+            md5("KHÁCH HÀNG TIÊU DÙNG") => [
+                "" => "KHÁCH HÀNG TIÊU DÙNG",
+                $es => "CONSUMER CUSTOMERS",
+            ],
+            md5("ĐỐI TÁC") => [
+                "" => "ĐỐI TÁC",
+                $es => "PARTNER",
+            ],
+            md5("TOÀN CẦU") => [
+                "" => "TOÀN CẦU",
+                $es => "GLOBAL",
+            ],
+            md5("Tháng") => [
+                "" => "Tháng",
+                $es => "Month",
+            ],
+            md5("Lan tỏa trên Facebook") => [
+                "" => "Lan tỏa trên Facebook",
+                $es => "Spread on Facebook",
+            ],
+            md5("Gửi trực tiếp cho bạn bè") => [
+                "" => "Gửi trực tiếp cho bạn bè",
+                $es => "Send it directly to your friends",
+            ],
+            md5("SỰ KIỆN CẬP NHẬT") => [
+                "" => "SỰ KIỆN CẬP NHẬT",
+                $es => "EVENT UPDATE",
+            ],
+            md5("Tiêu chuẩn quốc tế") => [
+                "" => "Tiêu chuẩn quốc tế",
+                $es => "International Standard",
+            ],
+            md5("a_1") => [
+                "" => "Sản phẩm đến từ các nền y học phát triển nhất thế giới. Đã chứng minh hiệu quả ở nhiều quốc gia.",
+                $es => "Products come from the most developed medical background in the world. Proven effective in many countries.",
+            ],
+            md5("Phân phối độc quyền") => [
+                "" => "Phân phối độc quyền",
+                $es => "Exclusive distribution",
+            ],
+            md5("a_2") => [
+                "" => "Sản phẩm chính ngạch, hoàn thiện pháp lý để kinh doanh tại Việt Nam.",
+                $es => "Official products, legal completion for business in Vietnam.",
+            ],
+            md5("Tiện ích 4.0") => [
+                "" => "Tiện ích 4.0",
+                $es => "Utility 4.0",
+            ],
+            md5("a_4") => [
+                "" => "Người tiêu dùng, nhà phân phối dễ dàng tiếp cận sản phẩm, cơ hội kinh doanh qua ứng dụng điện thoại.",
+                $es => "Consumers and distributors can easily access products and business opportunities through mobile applications.",
+            ],
+            md5("Cộng đồng tiêu dùng Ami") => [
+                "" => "Cộng đồng tiêu dùng Ami",
+                $es => "Ami . Consumer Community",
+            ],
+            md5("a_5") => [
+                "" => "Tham gia cộng đồng Ami để học tập, phát triển bản thân, tìm kiếm cộng sự, cơ hội kinh doanh.",
+                $es => "Join Ami community to learn, develop yourself, find partners, business opportunities.",
             ],
             md5("") => [
                 "" => "",
@@ -557,6 +665,12 @@ regex;
             case 'new_list':
                 $str .= 'w440/h294/fill!';
                 break;
+            case 'event_img':
+                $str .= 'w1000/fill!';
+                break;
+            case 'new_list_sk':
+                $str .= 'w600/h324/fill!';
+                break;
             case 'new_big':
                 $str .= 'w723/h615/fill!';
                 break;
@@ -577,6 +691,9 @@ regex;
                 break;
             case 'product_detail':
                 $str .= 'w560/450/fill!';
+                break;
+            case 'about_ami':
+                $str .= 'w355/h280/fill!';
                 break;
             case '':
                 echo "";
@@ -963,6 +1080,22 @@ regex;
         } else {
             return false;
         }
+    }
+
+    public static function calDate($time)
+    {
+        $week = array(self::langDefine("Sunday"), self::langDefine("Monday"), self::langDefine("Tuesday"), self::langDefine("Wednesday"), self::langDefine("Thursday"), self::langDefine("Friday"), self::langDefine("Saturday"));
+        $w = date('w', $time);
+        $day_of_week = $week[$w];
+        return $day_of_week . ', ' . date('d/m/Y', $time);
+    }
+
+    public static function calDate2($time)
+    {
+        $week = array(self::langDefine("Sunday"), self::langDefine("Monday"), self::langDefine("Tuesday"), self::langDefine("Wednesday"), self::langDefine("Thursday"), self::langDefine("Friday"), self::langDefine("Saturday"));
+        $w = date('w', $time);
+        $day_of_week = $week[$w];
+        return $day_of_week . ', ' . date('d/m/Y H:i', $time);
     }
 
 }

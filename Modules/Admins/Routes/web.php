@@ -210,6 +210,18 @@ Route::prefix('ami-admin')->group(function () {
             Route::get('/destroy/{id}', 'PostsController@destroy')->name('admin.post.destroy');
         });
 
+        Route::prefix('postevents')->group(function () {
+            Route::get('/', 'PosteventsController@index')->name('admin.pevent.index');
+            Route::post('/', 'PosteventsController@actionIndex');
+            Route::get('/create', 'PosteventsController@create')->name('admin.pevent.create');
+            Route::post('/create', 'PosteventsController@store');
+            Route::get('/edit/{id}', 'PosteventsController@edit')->name('admin.pevent.edit');
+            Route::post('/edit/{id}', 'PosteventsController@update');
+            Route::get('/status/{id}/{field}', 'PosteventsController@status')->name('admin.pevent.status');
+            Route::get('/show/{id}', 'PosteventsController@show')->name('admin.pevent.show');
+            Route::get('/destroy/{id}', 'PosteventsController@destroy')->name('admin.pevent.destroy');
+        });
+
         //Bài viet
         Route::prefix('posttwos')->group(function () {
             Route::get('/', 'PosttwosController@index')->name('admin.posttwo.index');

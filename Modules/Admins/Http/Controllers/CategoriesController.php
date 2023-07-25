@@ -159,7 +159,7 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
         try {
-            if(in_array($id, [1, 2, 3, 4, 15, 18])){
+            if(in_array($id, [1, 2, 3, 4, 15, 18, 14])){
                 session()->flash('error', __('admins::layer.notify.delete_fail'));
                 return back();
             }

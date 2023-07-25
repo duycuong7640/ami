@@ -109,6 +109,13 @@
                                                    class="form-control" placeholder=""/>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Facebook</label>
+                                            <input type="text" name="facebook_mess" value="{{ $data['detail']->facebook_mess }}"
+                                                   class="form-control" placeholder=""/>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">

@@ -124,19 +124,21 @@
                                         </div>
                                     </div>
                                 </div>
-                                @for($i = 0; $i < 5; $i ++)
-                                    <div style="background: #fff; margin-bottom: 5px; padding: 10px 10px 2px 10px;">
-                                        <div class="form-group">
-                                            <label style="font-weight: bold; color: red; padding-left: 2px; padding-top: 8px; margin-bottom: 0;">File {{ $i + 1 }}</label>
+                                <div style="display: none;">
+                                    @for($i = 0; $i < 5; $i ++)
+                                        <div style="background: #fff; margin-bottom: 5px; padding: 10px 10px 2px 10px;">
+                                            <div class="form-group">
+                                                <label style="font-weight: bold; color: red; padding-left: 2px; padding-top: 8px; margin-bottom: 0;">File {{ $i + 1 }}</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>File</label>
+                                                <input class="form-control" type="text"
+                                                       name="file_multi[]"
+                                                >
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label>File</label>
-                                            <input class="form-control" type="text"
-                                                   name="file_multi[]"
-                                            >
-                                        </div>
-                                    </div>
-                                @endfor
+                                    @endfor
+                                </div>
                                 <div class="form-group">
                                     <label>Mô tả top detail</label>
                                     <textarea type="text" name="des" id="des" class="form-control" placeholder=""></textarea>
@@ -177,7 +179,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Tiêu đề</label>
-                                    <input type="text" name="title_es" class="form-control" placeholder=""/>
+                                    <input type="text" name="title_en" class="form-control" placeholder=""/>
                                 </div>
                                 <div class="form-group">
                                     <label>Mô tả top detail</label>
@@ -185,11 +187,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Mô tả</label>
-                                    <textarea class="ckeditor-mini" name="description_es"></textarea>
+                                    <textarea class="ckeditor-mini" name="description_en"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Nội dung</label>
-                                    <textarea class="ckeditor" name="content_es"></textarea>
+                                    <textarea class="ckeditor" name="content_en"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -230,18 +232,18 @@
                                 <label>EN</label>
                             </div>
                             <div class="form-group">
-                                <label>Title seo <span id="title_seo_es_1" style="color: red;"></span></label>
-                                <textarea type="text" name="title_seo_es" id="title_seo_es" onkeyup="countChar('title_seo_es');"
+                                <label>Title seo <span id="title_seo_en_1" style="color: red;"></span></label>
+                                <textarea type="text" name="title_seo_en" id="title_seo_en" onkeyup="countChar('title_seo_en');"
                                           class="form-control" placeholder=""></textarea>
                             </div>
                             <div class="form-group">
-                                <label>Meta des <span id="meta_des_es_1" style="color: red;"></span></label>
-                                <textarea type="text" name="meta_des_es" id="meta_des_es" onkeyup="countChar('meta_des_es');"
+                                <label>Meta des <span id="meta_des_en_1" style="color: red;"></span></label>
+                                <textarea type="text" name="meta_des_en" id="meta_des_en" onkeyup="countChar('meta_des_en');"
                                           class="form-control" placeholder=""></textarea>
                             </div>
                             <div class="form-group">
-                                <label>Meta key <span id="meta_key_es_1" style="color: red;"></span></label>
-                                <textarea type="text" name="meta_key_es" id="meta_key_es" onkeyup="countChar('meta_key_es');"
+                                <label>Meta key <span id="meta_key_en_1" style="color: red;"></span></label>
+                                <textarea type="text" name="meta_key_en" id="meta_key_en" onkeyup="countChar('meta_key_en');"
                                           class="form-control" placeholder=""></textarea>
                             </div>
                         </div>

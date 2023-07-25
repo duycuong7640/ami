@@ -22,35 +22,35 @@ function getCookie(cname) {
     return "";
 }
 
-$(document).ready(function () {
-    calHeightHomeOne();
-    calHeightBoxFooter()
-});
-
-window.addEventListener("resize", function () {
-    calHeightHomeOne()
-    calHeightBoxFooter()
-});
-
-function calHeightHomeOne() {
-    const bodyHeight = window.innerHeight;
-    console.log(bodyHeight)
-    const homeOne = document.querySelector('.wrap-home-one');
-    if (homeOne) {
-        homeOne.setAttribute('style', 'height: ' + bodyHeight + 'px');
-    }
-}
-
-function calHeightBoxFooter() {
-    const boxFooterLists = document.querySelectorAll('.cal-b-ft');
-    let heightMax = 0;
-    boxFooterLists.forEach((r) => {
-        if(r.clientHeight > heightMax){
-            heightMax = r.clientHeight;
-        }
-    });
-    heightMax += 90;
-    boxFooterLists.forEach((r) => {
-        r.setAttribute('style', 'height: ' + heightMax + 'px');
-    });
-}
+// $(document).ready(function () {
+//     calHeightHomeOne();
+//     calHeightBoxFooter()
+// });
+//
+// window.addEventListener("resize", function () {
+//     calHeightHomeOne()
+//     calHeightBoxFooter()
+// });
+//
+// function calHeightHomeOne() {
+//     const bodyHeight = window.innerHeight;
+//     console.log(bodyHeight)
+//     const homeOne = document.querySelector('.wrap-home-one');
+//     if (homeOne) {
+//         homeOne.setAttribute('style', 'height: ' + bodyHeight + 'px');
+//     }
+// }
+//
+// function calHeightBoxFooter() {
+//     const boxFooterLists = document.querySelectorAll('.cal-b-ft');
+//     let heightMax = 0;
+//     boxFooterLists.forEach((r) => {
+//         if(r.clientHeight > heightMax){
+//             heightMax = r.clientHeight;
+//         }
+//     });
+//     heightMax += 90;
+//     boxFooterLists.forEach((r) => {
+//         r.setAttribute('style', 'height: ' + heightMax + 'px');
+//     });
+// }

@@ -11,7 +11,7 @@ class ClientPostService
 {
 
     private $repository;
-    const TYPE = ['new', 'new_about_ami', 'new_location'];
+    const TYPE = ['new', 'new_about_ami', 'new_location', 'new_event'];
 
     public function __construct(ClientPostRepositoryInterface $repository)
     {
@@ -48,9 +48,19 @@ class ClientPostService
         return $this->repository->getListByCate(array_merge($_data, ['type' => self::TYPE[0]]));
     }
 
+    public function getListByCateEvent($_data)
+    {
+        return $this->repository->getListByCate(array_merge($_data, ['type' => self::TYPE[3]]));
+    }
+
     public function getListByCategoryNotPaginate($_data)
     {
         return $this->repository->getListByCategoryNotPaginate(array_merge($_data, ['type' => self::TYPE[0]]));
+    }
+
+    public function getListByCategoryNotPaginateEvent($_data)
+    {
+        return $this->repository->getListByCategoryNotPaginate(array_merge($_data, ['type' => self::TYPE[3]]));
     }
 
     public function getListByCatePage($_data)
@@ -66,6 +76,11 @@ class ClientPostService
     public function getListRelated($_data)
     {
         return $this->repository->getListRelated(array_merge($_data, ['type' => self::TYPE[0], 'limit' => 5]));
+    }
+
+    public function getListRelatedEvent($_data)
+    {
+        return $this->repository->getListRelated(array_merge($_data, ['type' => self::TYPE[3], 'limit' => 5]));
     }
 
     public function getListNew()

@@ -32,7 +32,6 @@ class ClientPostRepository implements ClientPostRepositoryInterface
 
     public function getListByCategory($_data)
     {
-        
         return DB::table(self::TABLE_NAME)
 //            ->select('products.*', 'categories.title as category_title')
 //            ->leftJoin('categories', 'products.category_id', 'categories.id')
@@ -45,11 +44,21 @@ class ClientPostRepository implements ClientPostRepositoryInterface
 
     public function getListByCate($_data)
     {
-        return DB::table(self::TABLE_NAME)
-            ->whereIn('category_id', $_data['cate_multi'])
-            ->where('type', $_data['type'])
-            ->orderBy('id', 'DESC')
-            ->paginate($_data['limit']);
+        if (!empty($_GET['start']) || !empty($_GET['end'])) {
+            return DB::table(self::TABLE_NAME)
+                ->whereIn('category_id', $_data['cate_multi'])
+                ->where('type', $_data['type'])
+                ->whereYear('dienra', '>=', $_GET['start'])
+                ->whereYear('dienra', '<=', $_GET['end'])
+                ->orderBy('id', 'DESC')
+                ->paginate($_data['limit']);
+        } else {
+            return DB::table(self::TABLE_NAME)
+                ->whereIn('category_id', $_data['cate_multi'])
+                ->where('type', $_data['type'])
+                ->orderBy('id', 'DESC')
+                ->paginate($_data['limit']);
+        }
     }
 
     public function getListByCatePage($_data)
@@ -91,12 +100,23 @@ class ClientPostRepository implements ClientPostRepositoryInterface
 
     public function getListByCategoryNotPaginate($_data)
     {
-        return DB::table(self::TABLE_NAME)
-            ->whereIn('category_id', $_data['cate_multi'])
-            ->where('type', $_data['type'])
-            ->orderBy('id', 'DESC')
-            ->limit($_data['limit'])
-            ->get();
+        if (!empty($_GET['start']) || !empty($_GET['end'])) {
+            return DB::table(self::TABLE_NAME)
+                ->whereIn('category_id', $_data['cate_multi'])
+                ->where('type', $_data['type'])
+                ->whereYear('dienra', '>=', $_GET['start'])
+                ->whereYear('dienra', '<=', $_GET['end'])
+                ->orderBy('id', 'DESC')
+                ->limit($_data['limit'])
+                ->get();
+        } else {
+            return DB::table(self::TABLE_NAME)
+                ->whereIn('category_id', $_data['cate_multi'])
+                ->where('type', $_data['type'])
+                ->orderBy('id', 'DESC')
+                ->limit($_data['limit'])
+                ->get();
+        }
     }
 
 }

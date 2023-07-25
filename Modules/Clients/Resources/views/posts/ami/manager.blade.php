@@ -32,7 +32,7 @@
                                 <div class="b-img-slide">
                                     <div class="b-manager">
                                         <a href="" title="">
-                                            <img src="{{ \App\Helpers\Helpers::renderThumb('/storage/photos/ld1.png', 'manager') }}"
+                                            <img src="{{ \App\Helpers\Helpers::renderThumb($row->thumbnail, 'manager') }}"
                                                  title="" alt=""/>
                                         </a>
                                         <div class="content-data">

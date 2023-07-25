@@ -53,6 +53,58 @@
                                 <div class="form-group">
                                     <label id="urlfull" data-url="{{ asset("/") }}">Link: <a href=""></a></label>
                                 </div>
+                                <div style="padding: 15px; background: #ddd; display: none;">
+                                    <div class="form-group">
+                                        <label>Diễn ra lúc</label>
+                                        <div style="overflow: hidden; clear: both;">
+                                            <select name="d" class="form-control" style="width: 80px; float: left;">
+                                                <option value="">Ngày</option>
+                                                @for($i=1; $i<=31; $i++)
+                                                    <option value="{{$i}}">{{$i}}</option>
+                                                @endfor
+                                            </select>
+                                            <select name="m" class="form-control" style="width: 85px; float: left; margin: 0 10px;">
+                                                <option value="">Tháng</option>
+                                                @for($i=1; $i<=12; $i++)
+                                                    <option value="{{$i}}">{{$i}}</option>
+                                                @endfor
+                                            </select>
+                                            <select name="y" class="form-control" style="width: 80px; float: left;">
+                                                <option value="">Năm</option>
+                                                @for($i=2000; $i<=2100; $i++)
+                                                    <option value="{{$i}}">{{$i}}</option>
+                                                @endfor
+                                            </select>
+                                            <select name="h" class="form-control" style="width: 80px; float: left; margin: 0 10px;">
+                                                <option value="0">Giờ</option>
+                                                @for($i=0; $i<=23; $i++)
+                                                    <option value="{{$i}}">{{$i}}</option>
+                                                @endfor
+                                            </select>
+                                            <select name="i" class="form-control" style="width: 80px; float: left;">
+                                                <option value="0">Phút</option>
+                                                @for($i=0; $i<=59; $i++)
+                                                    <option value="{{$i}}">{{$i}}</option>
+                                                @endfor
+                                            </select>
+                                            <select name="s" class="form-control" style="width: 80px; float: left; margin: 0 10px;">
+                                                <option value="0">Giây</option>
+                                                @for($i=0; $i<=59; $i++)
+                                                    <option value="{{$i}}">{{$i}}</option>
+                                                @endfor
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Vị trí</label>
+                                        <input type="text" name="tai" class="form-control" placeholder=""/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Vị trí link</label>
+                                        <input type="text" name="tai_link" class="form-control" placeholder=""/>
+                                    </div>
+                                </div>
+                                <div style="clear: both; margin-bottom: 15px;"></div>
                                 <div class="form-group">
                                     <label>Danh mục chính</label>
                                     <select name="category_id" class="form-control col-md-3">
@@ -133,15 +185,21 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Tiêu đề</label>
-                                    <input type="text" name="title_es" class="form-control" placeholder=""/>
+                                    <input type="text" name="title_en" class="form-control" placeholder=""/>
+                                </div>
+                                <div style="padding: 15px; background: #ddd; display: none;">
+                                    <div class="form-group">
+                                        <label>Vị trí</label>
+                                        <input type="text" name="tai_en" class="form-control" placeholder=""/>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Mô tả</label>
-                                    <textarea class="ckeditor-mini" name="description_es"></textarea>
+                                    <textarea class="ckeditor-mini" name="description_en"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Nội dung</label>
-                                    <textarea class="ckeditor" name="content_es"></textarea>
+                                    <textarea class="ckeditor" name="content_en"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -180,16 +238,16 @@
                             </div>
                             <div class="form-group">
                                 <label>Title seo</label>
-                                <textarea type="text" name="title_seo_es" class="form-control"
+                                <textarea type="text" name="title_seo_en" class="form-control"
                                           placeholder=""></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Meta des</label>
-                                <textarea type="text" name="meta_des_es" class="form-control" placeholder=""></textarea>
+                                <textarea type="text" name="meta_des_en" class="form-control" placeholder=""></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Meta key</label>
-                                <textarea type="text" name="meta_key_es" class="form-control" placeholder=""></textarea>
+                                <textarea type="text" name="meta_key_en" class="form-control" placeholder=""></textarea>
                             </div>
                         </div>
                     </div>

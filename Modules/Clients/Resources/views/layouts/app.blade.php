@@ -6,9 +6,6 @@
 </head>
 <body>
 {!! !empty($data_common['setting']->code_body) ? $data_common['setting']->code_body : '' !!}
-<div class="wrap-header-abs absolute">
-    @include('clients::elements.header')
-</div>
 @yield('content')
 @include('clients::elements.footer')
 @include('clients::elements.extend.script')

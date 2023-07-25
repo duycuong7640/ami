@@ -120,6 +120,7 @@ class ProductsController extends Controller
             $_SESSION['PRO_VIEWED'][$data['detail']->id] = $data['detail']->id;
             $this->setCommon();
             $data['common'] = Helpers::metaHead($data['detail']);
+            $data['truso'] = $this->clientCategoryService->findById(4);
             $data['cate_parent'] = !empty($data['detail']->category_parent_id) ? $this->clientCategoryService->findById($data['detail']->category_parent_id) : [];
             $data['related'] = $this->clientProductService->getListRelated(['category_id' => $data['detail']->category_id]);
             return view('clients::products.show', compact('data'));
